@@ -14,7 +14,7 @@ namespace Azienda_spedizione_pacchi
         {
             int idViaggio = Int32.Parse(Request.QueryString["idViaggio"]);
             Viaggio v = ((List<Viaggio>)Session["listaViaggi"]).First(viaggio => viaggio.IdViaggio == idViaggio);
-            int i = 0;
+            int i = 1;
 
             
         }
