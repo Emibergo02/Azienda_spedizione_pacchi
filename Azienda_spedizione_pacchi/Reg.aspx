@@ -1,0 +1,106 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reg.aspx.cs" Inherits="Azienda_spedizione_pacchi.Reg" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style3 {
+            width: 679px;
+            height: 316px;
+            margin-left: 463px;
+        }
+        .auto-style2 {
+            width: 100%;
+            height: 185px;
+        }
+        .auto-style4 {
+            width: 279px;
+        }
+        .auto-style5 {
+            width: 275px;
+        }
+        .auto-style6 {
+            height: 40px;
+        }
+        .auto-style7 {
+            height: 26px;
+        }
+    </style>
+</head>
+<body style="height: 416px">
+    <table class="auto-style1">
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <form  id ="formLog" runat="server">
+    <div class="auto-style3">
+        <table class="auto-style2">
+            <tr>
+                <td>TITOLO FIGO LOGIN</td>
+            </tr>
+            <tr>
+                <td>Nome utente</td>
+            </tr>
+            <tr>
+                <td class="auto-style6">
+                    <input id="Text1" class="auto-style4" type="text" /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="Text2" class="auto-style5" type="text" /></td>
+            </tr>
+            <tr>
+                <td>
+                    Conferma Password</td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="Text2" class="auto-style5" type="text" /></td>
+            </tr>
+            <tr>
+                <td>
+                    Nome</td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="Text2" class="auto-style5" type="text" /></td>
+            </tr>
+            <tr>
+                <td>
+                    Cognome</td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="Text2" class="auto-style5" type="text" /></td>
+            </tr>
+            <tr>
+                <td>
+                    Indirizzo</td>
+            </tr>
+            <tr>
+                <td class="auto-style7">
+                    <input id="Text2" class="auto-style5" type="text" /></td>
+            </tr>
+            <tr>
+                <td class="auto-style7">
+                    <asp:Button ID="submitReg" runat="server" Text="Registrati" />
+                </td>
+            </tr>
+        </table>
+    </div>
+        </form>
+</body>
+</html>
