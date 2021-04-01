@@ -13,5 +13,12 @@ namespace Azienda_spedizione_pacchi
         {
 
         }
+
+        protected void submitReg_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
     }
 }

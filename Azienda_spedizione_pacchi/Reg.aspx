@@ -46,21 +46,23 @@
     <div class="auto-style3">
         <table class="auto-style2">
             <tr>
-                <td>TITOLO FIGO LOGIN</td>
+                <td>TITOLO FIGO REGISTER</td>
             </tr>
             <tr>
                 <td>Nome utente</td>
             </tr>
             <tr>
                 <td class="auto-style6">
-                    <input id="Text1" class="auto-style4" type="text" /></td>
+
+                <asp:TextBox ID="txtUsername" class="auto-style4" runat="server"></asp:TextBox>
+                    </td>
             </tr>
             <tr>
                 <td>Password</td>
             </tr>
             <tr>
                 <td>
-                    <input id="Text2" class="auto-style5" type="text" /></td>
+                    <asp:TextBox ID="txtPassword" class="auto-style5" runat="server"></asp:TextBox></td>
             </tr>
             <tr>
                 <td>
@@ -68,7 +70,7 @@
             </tr>
             <tr>
                 <td>
-                    <input id="Text2" class="auto-style5" type="text" /></td>
+                    <asp:TextBox ID="txtPasswordConfirm" class="auto-style5" runat="server"></asp:TextBox></td>
             </tr>
             <tr>
                 <td>
@@ -76,7 +78,7 @@
             </tr>
             <tr>
                 <td>
-                    <input id="Text2" class="auto-style5" type="text" /></td>
+                    <asp:TextBox ID="txtNome" class="auto-style5" runat="server"></asp:TextBox></td>
             </tr>
             <tr>
                 <td>
@@ -84,7 +86,7 @@
             </tr>
             <tr>
                 <td>
-                    <input id="Text2" class="auto-style5" type="text" /></td>
+                    <asp:TextBox ID="txtCognome" class="auto-style5" runat="server"></asp:TextBox></td>
             </tr>
             <tr>
                 <td>
@@ -92,11 +94,11 @@
             </tr>
             <tr>
                 <td class="auto-style7">
-                    <input id="Text2" class="auto-style5" type="text" /></td>
+                    <asp:TextBox ID="txtindirizzo" class="auto-style5" runat="server"></asp:TextBox></td>
             </tr>
             <tr>
                 <td class="auto-style7">
-                    <asp:Button ID="submitReg" runat="server" Text="Registrati" />
+                    <asp:Button ID="submitReg" runat="server" Text="Registrati" OnClick="submitReg_Click" />
                 </td>
             </tr>
         </table>
