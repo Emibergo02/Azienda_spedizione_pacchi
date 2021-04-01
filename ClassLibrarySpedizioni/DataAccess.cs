@@ -74,6 +74,36 @@ namespace ClassLibrarySpedizioni
             }
             return lista;
         }
-    
-}
+
+        public static List<Pacco> OttieniListaPacchi(string connectionString, List<Viaggio> listaViaggi, List<Cliente> listaClienti)
+        {
+            List<Pacco> lista = new List<Pacco>();
+            string queryString = "SELECT * FROM Pacco";
+            string messaggio = "";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                MySqlCommand command = new MySqlCommand(queryString, connection);
+
+                try
+                {
+                    connection.Open();
+                    MySqlDataAdapter da = new MySqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Pacco p = new Pacco((int)dr["idPacco"], listaViaggi.Find(x => x.IdViaggio == (int)dr["idViaggio"]),listaClienti.Find(x=> x.IdCliente == (int)dr["idMittente"]),listaClienti.Find(x=>x.IdCliente == (int)dr["idDestinatario"]),(int)dr["Volume"],(int)dr["numOrdineConsegna"]);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    messaggio = ex.Message;
+                }
+            }
+            return lista;
+        }
+
+    }
 }
