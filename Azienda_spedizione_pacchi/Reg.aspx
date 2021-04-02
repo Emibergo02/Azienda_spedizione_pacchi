@@ -62,7 +62,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:TextBox ID="txtPassword" class="auto-style5" runat="server"></asp:TextBox></td>
+                    <asp:TextBox ID="txtPassword" class="auto-style5" runat="server" TextMode="Password"></asp:TextBox></td>
             </tr>
             <tr>
                 <td>
@@ -70,7 +70,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:TextBox ID="txtPasswordConfirm" class="auto-style5" runat="server"></asp:TextBox></td>
+                    <asp:TextBox ID="txtPasswordConfirm" class="auto-style5" runat="server" TextMode="Password"></asp:TextBox></td>
             </tr>
             <tr>
                 <td>
@@ -99,6 +99,7 @@
             <tr>
                 <td class="auto-style7">
                     <asp:Button ID="submitReg" runat="server" Text="Registrati" OnClick="submitReg_Click" />
+                    <asp:Literal ID="msgErrorRegister" runat="server"></asp:Literal>
                 </td>
             </tr>
         </table>

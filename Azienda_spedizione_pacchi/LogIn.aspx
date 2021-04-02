@@ -63,6 +63,7 @@
                         <tr>
                 <td>
                     <asp:Button ID="submitReg" runat="server" Text="Login" OnClick="submitReg_Click" />
+                    <asp:Literal ID="msgError" runat="server"></asp:Literal>
                     </td>
             </tr>
 

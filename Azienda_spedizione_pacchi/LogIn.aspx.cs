@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Azienda_spedizione_pacchi
 {
@@ -16,6 +11,9 @@ namespace Azienda_spedizione_pacchi
 
         protected void submitReg_Click(object sender, EventArgs e)
         {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
 
         }
     }

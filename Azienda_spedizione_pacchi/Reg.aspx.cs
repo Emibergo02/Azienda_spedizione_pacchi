@@ -1,9 +1,7 @@
-﻿using System;
+﻿using ClassLibrarySpedizioni;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace Azienda_spedizione_pacchi
 {
@@ -16,9 +14,36 @@ namespace Azienda_spedizione_pacchi
 
         protected void submitReg_Click(object sender, EventArgs e)
         {
-
-
-
+            List<Cliente> clienti = DataAccess.OttieniListaClienti(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString);
+            if (clienti.Find(cl => cl.Utente.Username == txtUsername.Text) != null)
+            {
+                msgErrorRegister.Text = "L'username è già stato scelto";
+                return;
+            }
+            else
+            if (!txtPassword.Text.Equals(txtPasswordConfirm.Text))
+            {
+                msgErrorRegister.Text = "La password non è uguale";
+                return;
+            }
+            else
+            if (txtNome.Text.Equals(""))
+            {
+                msgErrorRegister.Text = "il nome è vuoto";
+                return;
+            }
+            else if (txtCognome.Text.Equals(""))
+            {
+                msgErrorRegister.Text = "il cognome è vuoto";
+                return;
+            }
+            else if (txtindirizzo.Text.Equals(""))
+            {
+                msgErrorRegister.Text = "l'indirizzo è vuoto";
+                return;
+            }
+            DataAccess.InserisciCliente(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString, txtNome.Text, txtCognome.Text, txtindirizzo.Text, txtUsername.Text, txtPassword.Text, 1);
+            msgErrorRegister.Text = "Bene";
         }
     }
 }
