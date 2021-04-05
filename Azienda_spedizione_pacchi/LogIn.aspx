@@ -57,7 +57,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:TextBox ID="txtPassword" class="auto-style5" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" class="auto-style5" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
             </tr>
                         <tr>
