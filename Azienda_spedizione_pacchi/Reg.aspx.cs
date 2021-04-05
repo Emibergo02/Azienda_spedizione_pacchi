@@ -42,7 +42,7 @@ namespace Azienda_spedizione_pacchi
                 msgErrorRegister.Text = "l'indirizzo è vuoto";
                 return;
             }
-            DataAccess.InserisciCliente(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString, txtNome.Text, txtCognome.Text, txtindirizzo.Text, txtUsername.Text, txtPassword.Text, 1);
+            DataAccess.InserisciCliente(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString, txtNome.Text, txtCognome.Text, txtindirizzo.Text, txtUsername.Text, DataAccess.ComputeSha256Hash("questoèunsalt",txtPassword.Text), 1);
             msgErrorRegister.Text = "Bene";
         }
     }
