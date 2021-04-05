@@ -10,6 +10,13 @@
 <body>
     <form id="form1" runat="server">
         <div>
+
+            <asp:Repeater ID="rptViaggi" runat="server">
+                <ItemTemplate>
+                    <%#Eval("NOrdineConsegna") %> - <%#Eval("Mittente.Nome") %> <%#Eval("Mittente.Cognome") %> - <%#Eval("Destinatario.Nome") %> <%#Eval("Destinatario.Cognome") %> - <%#Eval("Volume") %> - <%#Eval("Viaggio.Data") %><br />
+                </ItemTemplate>
+            </asp:Repeater>
+
         </div>
     </form>
 </body>

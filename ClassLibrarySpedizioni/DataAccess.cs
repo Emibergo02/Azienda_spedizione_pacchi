@@ -243,6 +243,34 @@ namespace ClassLibrarySpedizioni
             }
         }
 
+        public static void inserisciPacco(string connectionString, Veicolo veicolo, string nomeCorriere, DateTime data)
+        {
+            List<Cliente> lista = new List<Cliente>();
+            string queryString = "INSERT INTO `viaggio` (`idViaggio`, `idVeicolo`, `data`, `nomeCorriere`) VALUES (NULL,@idVeicolo,@data,@nomeCorriere);";
+            string messaggio = "";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                MySqlCommand command = new MySqlCommand(queryString, connection);
+
+                try
+                {
+                    connection.Open();
+                    //parametri per evitare SQL Injection
+                    command.Parameters.AddWithValue("@idVeicolo", veicolo);
+                    command.Parameters.AddWithValue("@data", data);
+                    command.Parameters.AddWithValue("@nomeCorriere", nomeCorriere);
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+
+                }
+                catch (Exception ex)
+                {
+                    messaggio = ex.Message;
+                }
+            }
+        }
+
 
     }
 }
