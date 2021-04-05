@@ -165,7 +165,38 @@ namespace ClassLibrarySpedizioni
                 }
             }
         }
-        public static void InserisciViaggio(string connectionString, Veicolo veicolo, string nomeCorriere, DateTime data)
+        public static void InserisciVeicolo(string connectionString, string targa, string marca, string modello, int capacitàMax, int pesoMax)
+        {
+            List<Cliente> lista = new List<Cliente>();
+            string queryString = "INSERT INTO `veicolo` (`targa`, `marca`, `modello`, `capacitaMax`, `pesoMax`) VALUES ('@targa', '@marca', '@modello', '@capacitàMax', '@pesoMax');";
+            string messaggio = "";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                MySqlCommand command = new MySqlCommand(queryString, connection);
+
+                try
+                {
+                    connection.Open();
+                    //parametri per evitare SQL Injection
+                    command.Parameters.AddWithValue("@targa", targa);
+                    command.Parameters.AddWithValue("@marca", marca);
+                    command.Parameters.AddWithValue("@modello", modello);
+                    command.Parameters.AddWithValue("@capacitàMax", capacitàMax);
+                    command.Parameters.AddWithValue("@pesoMax", pesoMax);
+                   
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+
+                }
+                catch (Exception ex)
+                {
+                    messaggio = ex.Message;
+                }
+            }
+        }
+
+        public static void inserisciViaggio(string connectionString, Veicolo veicolo, string nomeCorriere, DateTime data)
         {
             List<Cliente> lista = new List<Cliente>();
             string queryString = "INSERT INTO `viaggio` (`idViaggio`, `idVeicolo`, `data`, `nomeCorriere`) VALUES (NULL,@idVeicolo,@data,@nomeCorriere);";
@@ -192,7 +223,7 @@ namespace ClassLibrarySpedizioni
                 }
             }
         }
-       
+
 
     }
 }
