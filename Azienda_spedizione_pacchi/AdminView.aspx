@@ -26,24 +26,20 @@
                         <asp:Image runat="server" ImageUrl="~/Images/hitesh.png"
                             ID="profileimg" />
                     </div>
-                    <li class="sidebar-brand"><a href="#">Start Bootstrap </a></li>
+                    <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
                     <br />
 
-                    <li><a href="Music.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Music</a>
+                    <li><a href="InserimentoViaggi.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Viaggi</a>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Search</a>
+                    <li><a href="inserimentoVeicoli"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Veicoli</a>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Contacts</a>
+                    <li><a href="inserimentoCorrieri.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Corrieri</a>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Delete it!</a>
+                    <li><a href="inserimentoPacchi.aspx"><span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Pacchi</a>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Cloud</a>
+                    <li><a href="Login.aspx"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Torna al login</a>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Refresh</a>
-                    </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-print"></span>&nbsp;&nbsp;Printing</a>
-                    </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Logout !!!!</a>
+
                     </li>
                 </ul>
             </div>
@@ -53,7 +49,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>Simple Sidebar</h1>
+                            <h1>Admin HomePage</h1>
                             <p>
                                 Benvenuto nella pagina da amministratore dell nostro gestionale.
                             </p>

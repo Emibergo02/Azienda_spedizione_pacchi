@@ -9,7 +9,7 @@
 
 namespace Azienda_spedizione_pacchi
 {
-
+    
 
     public partial class Amministratore
     {
