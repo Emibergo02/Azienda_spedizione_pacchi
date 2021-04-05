@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClassLibrarySpedizioni
+﻿namespace ClassLibrarySpedizioni
 {
     public class Pacco
     {
@@ -30,6 +24,6 @@ namespace ClassLibrarySpedizioni
         public Cliente Destinatario { get => destinatario; set => destinatario = value; }
         public int NOrdineConsegna { get => nOrdineConsegna; set => nOrdineConsegna = value; }
         public int Volume { get => volume; set => volume = value; }
-        internal Viaggio Viaggio { get => viaggio; set => viaggio = value; }
+        public Viaggio Viaggio { get => viaggio; set => viaggio = value; }
     }
 }

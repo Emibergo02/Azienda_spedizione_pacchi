@@ -9,9 +9,9 @@
 
 namespace Azienda_spedizione_pacchi
 {
-    
 
-    public partial class AdminView
+
+    public partial class UserView
     {
 
         /// <summary>
@@ -24,12 +24,12 @@ namespace Azienda_spedizione_pacchi
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo profileimg.
+        /// Controllo rptViaggi.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image profileimg;
+        protected global::System.Web.UI.WebControls.Repeater rptViaggi;
     }
 }

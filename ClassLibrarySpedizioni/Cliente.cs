@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClassLibrarySpedizioni
+﻿namespace ClassLibrarySpedizioni
 {
     public class Cliente
     {
@@ -14,7 +8,7 @@ namespace ClassLibrarySpedizioni
         private string indirizzo;
         private Utente utente;
 
-        public Cliente(int idCliente, string nome, string cognome, string indirizzo,Utente utente)
+        public Cliente(int idCliente, string nome, string cognome, string indirizzo, Utente utente)
         {
             this.idCliente = idCliente;
             this.nome = nome;
