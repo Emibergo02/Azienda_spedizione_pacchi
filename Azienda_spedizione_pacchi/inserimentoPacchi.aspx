@@ -1,6 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InserimentoViaggi.aspx.cs" Inherits="Azienda_spedizione_pacchi.adminPage.InserimentoViaggi" %>
-
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="inserimentoPacchi.aspx.cs" Inherits="Azienda_spedizione_pacchi.inserimentoPacchi" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -50,14 +48,14 @@
                         <div class="col-lg-12">
                             <h1>Inserimento nuove consegne</h1>
                             <p>
-                                Benvenuto nella pagina da amministratore per l'inserimento di nuove consegne.compili il form sottostante grazie.
+                                Benvenuto nella pagina da amministratore per l'inserimento di nuovi veicoli. compili il form sottostante grazie.
                             </p>
                             <form id="formLog" runat="server">
                                 <div class="auto-style3">
                                     <table class="auto-style2">
 
                                         <tr>
-                                            <td>Targa Veicolo</td>
+                                            <td>Mittente</td>
                                         </tr>
                                         <tr>
                                             <td class="auto-style6">
@@ -65,24 +63,28 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>data</td>
+                                            <td>Destinatario</td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:TextBox ID="data" class="auto-style5" runat="server" TextMode="date" OnTextChanged="txtPassword_TextChanged"></asp:TextBox></td>
+                                                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
                                         </tr>
                                         <tr>
-                                            <td>Nome del corriere</td>
+                                            <td>Volume in cm^3</td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:TextBox ID="txtPasswordConfirm" class="auto-style5" runat="server" ></asp:TextBox></td>
+                                                <asp:TextBox ID="modello" class="auto-style5" runat="server"  TextMode="Number" ></asp:TextBox></td>
                                         </tr>
+                                        <tr>
+                                            <td>Viaggio </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList>
+                                        </tr>
+                                        
                                        
-                                        <tr>
-                                            <td class="auto-style7">
-                                                <asp:TextBox ID="txtindirizzo" class="auto-style5" runat="server"></asp:TextBox></td>
-                                        </tr>
                                         <tr>
                                             <td class="auto-style7">
                                                 <asp:Button ID="submitReg" runat="server" Text="Inserisci"  />
