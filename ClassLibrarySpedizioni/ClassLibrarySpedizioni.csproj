@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="DataAccess.cs" />
     <Compile Include="Pacco.cs" />
+    <Compile Include="Utente.cs" />
     <Compile Include="Veicolo.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
