@@ -12,6 +12,8 @@ namespace Azienda_spedizione_pacchi
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+
         }
     }
 }

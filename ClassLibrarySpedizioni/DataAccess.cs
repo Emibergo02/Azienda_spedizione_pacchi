@@ -42,6 +42,38 @@ namespace ClassLibrarySpedizioni
             }
             return lista;
         }
+        public static List<Veicolo> OttieniListaVeicoli(string connectionString)
+        {
+            List<Veicolo> lista = new List<Veicolo>();
+            string queryString = "SELECT * FROM veicolo";
+            string messaggio = "";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                MySqlCommand command = new MySqlCommand(queryString, connection);
+
+                try
+                {
+                    connection.Open();
+                    MySqlDataAdapter da = new MySqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Veicolo veicolo = new Veicolo(dr["targa"].ToString(), dr["marca"].ToString(), dr["modello"].ToString(),
+                            (int)dr["capacitaMax"], (int)dr["pesoMax"]);
+                        
+                        lista.Add(veicolo);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    messaggio = ex.Message;
+                }
+            }
+            return lista;
+        }
 
         public static List<Cliente> OttieniListaClienti(string connectionString)
         {

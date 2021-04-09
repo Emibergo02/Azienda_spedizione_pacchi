@@ -40,7 +40,7 @@ namespace Azienda_spedizione_pacchi
                         mittente.DataTextField = dt.Columns["cognome"].ToString() ;
                         mittente.DataValueField = dt.Columns["idCliente"].ToString();
                         mittente.DataBind();
-                        destinatario.DataTextField = dt.Columns["cognome"].ToString();
+                        destinatario.DataTextField = dt.Columns["nome"].ToString();
                         destinatario.DataValueField = dt.Columns["idCliente"].ToString();
                         destinatario.DataBind();
                         Session["dropIndex"] = dt;

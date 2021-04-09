@@ -61,7 +61,7 @@
                                         </tr>
                                         <tr>
                                             <td class="auto-style6">
-                                                <asp:DropDownList ID="targhe" runat="server"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlTarghe" runat="server"></asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
@@ -69,23 +69,19 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:TextBox ID="data" class="auto-style5" runat="server" TextMode="date" OnTextChanged="txtPassword_TextChanged"></asp:TextBox></td>
+                                                <asp:TextBox ID="data" class="auto-style5" runat="server" TextMode="date"></asp:TextBox></td>
                                         </tr>
                                         <tr>
                                             <td>Nome del corriere</td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:TextBox ID="txtPasswordConfirm" class="auto-style5" runat="server" ></asp:TextBox></td>
+                                                <asp:TextBox ID="nomeCorriere" class="auto-style5" runat="server" ></asp:TextBox></td>
                                         </tr>
-                                       
+
                                         <tr>
                                             <td class="auto-style7">
-                                                <asp:TextBox ID="txtindirizzo" class="auto-style5" runat="server"></asp:TextBox></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="auto-style7">
-                                                <asp:Button ID="submitReg" runat="server" Text="Inserisci"  />
+                                                <asp:Button ID="submitReg" runat="server" Text="Inserisci" OnClick="submitReg_Click"  />
                                                 <asp:Literal ID="msgErrorRegister" runat="server"></asp:Literal>
                                             </td>
                                         </tr>
