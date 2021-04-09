@@ -16,7 +16,7 @@ namespace Azienda_spedizione_pacchi
 
         /// <summary>
         /// Controllo profileimg.
-        /// </summary>
+        /// </summary>  
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
@@ -33,40 +33,40 @@ namespace Azienda_spedizione_pacchi
         protected global::System.Web.UI.HtmlControls.HtmlForm formLog;
 
         /// <summary>
-        /// Controllo targhe.
+        /// Controllo mittente.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList targhe;
+        protected global::System.Web.UI.WebControls.DropDownList mittente;
 
         /// <summary>
-        /// Controllo DropDownList1.
+        /// Controllo destinatario.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList destinatario;
 
         /// <summary>
-        /// Controllo modello.
+        /// Controllo volume.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox modello;
+        protected global::System.Web.UI.WebControls.TextBox volume;
 
         /// <summary>
-        /// Controllo DropDownList2.
+        /// Controllo viaggio.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList viaggio;
 
         /// <summary>
         /// Controllo submitReg.

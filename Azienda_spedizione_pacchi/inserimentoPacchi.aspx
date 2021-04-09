@@ -12,7 +12,7 @@
 <body>
  
         <div id="wrapper">
-            <!-- Sidebar -->
+            <!-- Sidebar --> 
 
 
             <div id="sidebar-wrapper">
@@ -22,7 +22,7 @@
 
                         <br />
 
-                        <asp:Image runat="server" ImageUrl="~/Images/hitesh.png"
+                        <asp:Image runat="server" ImageUrl="~/Images/hitesh.png" 
                             ID="profileimg" />
                     </div>
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
@@ -59,7 +59,7 @@
                                         </tr>
                                         <tr>
                                             <td class="auto-style6">
-                                                <asp:DropDownList ID="targhe" runat="server"></asp:DropDownList>
+                                                <asp:DropDownList ID="mittente" runat="server"></asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
@@ -67,21 +67,21 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                                                <asp:DropDownList ID="destinatario" runat="server"></asp:DropDownList>
                                         </tr>
                                         <tr>
                                             <td>Volume in cm^3</td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:TextBox ID="modello" class="auto-style5" runat="server"  TextMode="Number" ></asp:TextBox></td>
+                                                <asp:TextBox ID="volume" class="auto-style5" runat="server"  TextMode="Number" ></asp:TextBox></td>
                                         </tr>
                                         <tr>
                                             <td>Viaggio </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList>
+                                                <asp:DropDownList ID="viaggio" runat="server"></asp:DropDownList>
                                         </tr>
                                         
                                        
