@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrarySpedizioni;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,13 @@ namespace Azienda_spedizione_pacchi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-
+            if (!Page.IsPostBack)
+                if (Session["clienteLoggato"] != null)
+                {
+                    Cliente c = (Cliente)Session["clienteLoggato"];
+                    if (c.Utente.Privilegi != 0) Response.Redirect("LogIn.aspx");
+                }
+                else Response.Redirect("LogIn.aspx");
         }
     }
 }

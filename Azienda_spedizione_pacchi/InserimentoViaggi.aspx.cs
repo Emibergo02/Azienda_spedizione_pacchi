@@ -21,31 +21,38 @@ namespace Azienda_spedizione_pacchi.adminPage
                 }
                 else Response.Redirect("LogIn.aspx");
 
-            List<string> targheVeicoli = new List<string>();
-            foreach(Veicolo v in DataAccess.OttieniListaVeicoli(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString))
+            
+            foreach (Veicolo v in DataAccess.OttieniListaVeicoli(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString))
             {
-                targheVeicoli.Add(v.Targa);
+                ddlTarghe.Items.Add(v.Targa);
             }
-
-            ddlTarghe.DataSource = targheVeicoli;
-            this.DataBind();
         }
 
         protected void submitReg_Click(object sender, EventArgs e)
         {
-            string a = ddlTarghe.SelectedItem.Value;
-            string b = ddlTarghe.SelectedItem.Text;
-            if (ddlTarghe.SelectedItem.Value.Equals("")) return;
+            string conn = ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString;
+            if (ddlTarghe.SelectedItem.Value.Equals(""))
+            {
+                msgErrorRegister.Text = "Non hai selezionato niente";
+                return;
+            }
             DateTime dataViaggio;
             try {
                 dataViaggio = Convert.ToDateTime(data.Text);
             }catch (FormatException fe)
             {
-
+                msgErrorRegister.Text = "data con formato sbagliato";
                 return;
             }
-            if(nomeCorriere.Text.Equals(""))return;
-            msgErrorRegister.Text = ddlTarghe.SelectedItem.Value + "Fatto" +dataViaggio.ToString()+ nomeCorriere.Text;
+            if (nomeCorriere.Text.Equals(""))
+            {
+                msgErrorRegister.Text = "nome corriere vuoto";
+                return;
+            }
+            DataAccess.InserisciViaggio(conn, ddlTarghe.SelectedItem.Value, nomeCorriere.Text, dataViaggio);
+            msgErrorRegister.Text = "Inserito correttamente";
+            ddlTarghe.Items.Clear();
+
         }
     }
 }

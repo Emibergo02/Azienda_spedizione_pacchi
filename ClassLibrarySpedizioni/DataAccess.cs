@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text;
@@ -230,7 +231,7 @@ namespace ClassLibrarySpedizioni
             }
         }
 
-        public static void inserisciViaggio(string connectionString, Veicolo veicolo, string nomeCorriere, DateTime data)
+        public static void InserisciViaggio(string connectionString, string veicolo, string nomeCorriere, DateTime data)
         {
             List<Cliente> lista = new List<Cliente>();
             string queryString = "INSERT INTO `viaggio` (`idViaggio`, `idVeicolo`, `data`, `nomeCorriere`) VALUES (NULL,@idVeicolo,@data,@nomeCorriere);";
@@ -275,7 +276,7 @@ namespace ClassLibrarySpedizioni
             }
         }
 
-        public static void inserisciPacco(string connectionString, Veicolo veicolo, string nomeCorriere, DateTime data)
+        public static void InserisciPacco(string connectionString, Veicolo veicolo, string nomeCorriere, DateTime data)
         {
             List<Cliente> lista = new List<Cliente>();
             string queryString = "INSERT INTO `viaggio` (`idViaggio`, `idVeicolo`, `data`, `nomeCorriere`) VALUES (NULL,@idVeicolo,@data,@nomeCorriere);";
@@ -302,6 +303,28 @@ namespace ClassLibrarySpedizioni
                 }
             }
         }
+        /*
+         * 
+         */
+        public static void GetDataSource(out List<int> Viaggi,out List<int> idCLienti, out List<string> listaNomeCognome, string connectionString)
+        {
+            Viaggi = new List<int>();
+            idCLienti = new List<int>();
+            listaNomeCognome = new List<string>();
+            List <Cliente> lista = OttieniListaClienti(connectionString);
+            List<Viaggio> V = OttieniListaViaggi(connectionString);
+            List<string> listaDropDown = new List<string>();
+            foreach (Cliente c in lista)
+            {
+                idCLienti.Add(c.IdCliente);
+                listaNomeCognome.Add(c.Cognome + "-" + c.Nome);
+            }
+            foreach(Viaggio v in V)
+            {
+                Viaggi.Add(v.IdViaggio);
+            }
+        }
+
 
 
     }

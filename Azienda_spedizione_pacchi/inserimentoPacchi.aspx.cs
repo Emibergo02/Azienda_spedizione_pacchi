@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using ClassLibrarySpedizioni;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,44 +15,40 @@ namespace Azienda_spedizione_pacchi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+                if (Session["clienteLoggato"] != null)
+                {
+                    Cliente c = (Cliente)Session["clienteLoggato"];
+                    if (c.Utente.Privilegi != 0) Response.Redirect("LogIn.aspx");
+                }
+                else Response.Redirect("LogIn.aspx");
             fillDropListUtente();
         }
-           
+        public void fillDropListViaggi() 
+        {
+            
+        }
         public void fillDropListUtente()
         {
-            if (Session["dropIndex"] == null)
-            {
-                string connectionString =
+            List<int> idClienti;
+            List<string> listaNomeCognome;
+            List<int> Viaggi;
+            string connectionString =
                        ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString;
-                //SELECT gara.idGara FROM gara
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    // Create the Command and Parameter objects.
-                    MySqlCommand command = new MySqlCommand("SELECT cliente.nome,cliente.cognome,cliente.idCliente from cliente", connection);
-                    // Open the connection in a try/catch block. Use a DataAdapter to Fill a DataSet Object
-                    try
-                    {
-                        connection.Open();
-                        MySqlDataAdapter da = new MySqlDataAdapter(command);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        destinatario.DataSource = dt;
-                        mittente.DataSource = dt;
-                        mittente.DataTextField = dt.Columns["cognome"].ToString() ;
-                        mittente.DataValueField = dt.Columns["idCliente"].ToString();
-                        mittente.DataBind();
-                        destinatario.DataTextField = dt.Columns["nome"].ToString();
-                        destinatario.DataValueField = dt.Columns["idCliente"].ToString();
-                        destinatario.DataBind();
-                        Session["dropIndex"] = dt;
-                    }
-                    catch
-                    {
+            DataAccess.GetDataSource(out Viaggi,out idClienti,out listaNomeCognome, connectionString);
 
-                    }
-                }
-
+            var numbersAndWords = idClienti.Zip(listaNomeCognome, (n, w) => new { Number = n, Word = w });
+            foreach (var nw in numbersAndWords)
+            {
+                mittente.Items.Add(new ListItem(nw.Word, nw.Number.ToString()));
+                destinatario.Items.Add(new ListItem(nw.Word, nw.Number.ToString()));
+                
             }
+            foreach(int v in Viaggi)
+            {
+                viaggio.Items.Add(v.ToString());
+            }
+            
         }
 
         
