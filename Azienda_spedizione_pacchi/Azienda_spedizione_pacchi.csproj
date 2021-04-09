@@ -70,12 +70,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminView.aspx" />
     <Content Include="dettaglioViaggio.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="inserimentoPacchi.aspx" />
+    <Content Include="inserimentoVeicoli.aspx" />
+    <Content Include="InserimentoViaggi.aspx" />
+    <Content Include="LogIn.aspx" />
+    <Content Include="Reg.aspx" />
+    <Content Include="UserView.aspx" />
     <Content Include="viaggi.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminView.aspx.cs">
+      <DependentUpon>AdminView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminView.aspx.designer.cs">
+      <DependentUpon>AdminView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="dettaglioViaggio.aspx.cs">
       <DependentUpon>dettaglioViaggio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -86,7 +100,49 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="inserimentoPacchi.aspx.cs">
+      <DependentUpon>inserimentoPacchi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inserimentoPacchi.aspx.designer.cs">
+      <DependentUpon>inserimentoPacchi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inserimentoVeicoli.aspx.cs">
+      <DependentUpon>inserimentoVeicoli.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="inserimentoVeicoli.aspx.designer.cs">
+      <DependentUpon>inserimentoVeicoli.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InserimentoViaggi.aspx.cs">
+      <DependentUpon>InserimentoViaggi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InserimentoViaggi.aspx.designer.cs">
+      <DependentUpon>InserimentoViaggi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reg.aspx.cs">
+      <DependentUpon>Reg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reg.aspx.designer.cs">
+      <DependentUpon>Reg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserView.aspx.cs">
+      <DependentUpon>UserView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserView.aspx.designer.cs">
+      <DependentUpon>UserView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="viaggi.aspx.cs">
       <DependentUpon>viaggi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
