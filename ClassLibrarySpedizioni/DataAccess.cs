@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -317,7 +318,7 @@ namespace ClassLibrarySpedizioni
             foreach (Cliente c in lista)
             {
                 idCLienti.Add(c.IdCliente);
-                listaNomeCognome.Add(c.Cognome + "-" + c.Nome);
+                listaNomeCognome.Add(c.Cognome + " " + c.Nome);
             }
             foreach(Viaggio v in V)
             {

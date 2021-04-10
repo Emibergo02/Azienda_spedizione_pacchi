@@ -31,7 +31,7 @@
 
                     <li><a href="InserimentoViaggi.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Viaggi</a>
                     </li>
-                    <li><a href="inserimentoVeicoli"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Veicoli</a>
+                    <li><a href="inserimentoVeicoli.aspx"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Veicoli</a>
                     </li>
                     <li><a href="inserimentoCorrieri.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Corrieri</a>
                     </li>

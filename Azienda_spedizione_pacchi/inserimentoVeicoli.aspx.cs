@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,6 +20,63 @@ namespace Azienda_spedizione_pacchi
                     if (c.Utente.Privilegi != 0) Response.Redirect("LogIn.aspx");
                 }
                 else Response.Redirect("LogIn.aspx");
+
+            
+            
+        }
+
+        protected void submitReg_Click(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex("/^[a-zA-Z]{2}[0-9]{3,4}[a-zA-Z]{2}$/");
+            if (rgx.IsMatch(targa.Text))
+            {
+                msgErrorRegister.Text = "Il formato della Targa non è corretto";
+                return;
+            }
+            if (marca.Text.Equals(""))
+            {
+                msgErrorRegister.Text = "inserire una marca";
+                return;
+            }
+            if (modello.Text.Equals(""))
+            {
+                
+            }
+            int isNum = 0;
+            
+            if (int.TryParse(capacita.Text, out isNum))
+            {
+                if (isNum < 0)
+                {
+                    msgErrorRegister.Text = "numero minore di zero";
+                    return;
+                }
+            }
+            else
+            {
+                msgErrorRegister.Text = "non è stato inserito un numero, oppure non era intero";
+                return;
+            }
+            isNum = 0;
+
+            if(int.TryParse(pesoMax.Text, out isNum))
+            {
+                if (isNum < 0)
+                {
+                    msgErrorRegister.Text = "numero minore di zero";
+                    return;
+                }
+                return;
+            }
+            else
+            {
+                msgErrorRegister.Text = "non è stato inserito un numero, oppure non era intero";
+                return;
+            }
+
+
+        }
+
+
         }
     }
-}
