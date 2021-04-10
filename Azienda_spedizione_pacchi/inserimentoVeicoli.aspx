@@ -63,7 +63,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>marca modello capacità e pesomax</td>
+                                            <td>marca</td>
                                         </tr>
                                         <tr>
                                             <td>
@@ -93,7 +93,7 @@
                                        
                                         <tr>
                                             <td class="auto-style7">
-                                                <asp:Button ID="submitReg" runat="server" Text="Inserisci"  />
+                                                <asp:Button ID="submitReg" runat="server" Text="Inserisci" OnClick="submitReg_Click"  />
                                                 <asp:Literal ID="msgErrorRegister" runat="server"></asp:Literal>
                                             </td>
                                         </tr>
