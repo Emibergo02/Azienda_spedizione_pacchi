@@ -1,6 +1,7 @@
 ﻿using ClassLibrarySpedizioni;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -40,7 +41,8 @@ namespace Azienda_spedizione_pacchi
             }
             if (modello.Text.Equals(""))
             {
-                
+                msgErrorRegister.Text = "inserire una marca";
+                return;
             }
             int isNum = 0;
             
@@ -66,14 +68,15 @@ namespace Azienda_spedizione_pacchi
                     msgErrorRegister.Text = "numero minore di zero";
                     return;
                 }
-                return;
             }
             else
             {
                 msgErrorRegister.Text = "non è stato inserito un numero, oppure non era intero";
                 return;
             }
-
+            string connectionString =
+                       ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString;
+            DataAccess.InserisciVeicolo(connectionString, targa.Text,marca.Text,modello.Text,int.Parse(capacita.Text),int.Parse(pesoMax.Text));
 
         }
 
