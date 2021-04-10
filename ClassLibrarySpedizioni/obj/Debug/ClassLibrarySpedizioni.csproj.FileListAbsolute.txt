@@ -27,3 +27,24 @@ C:\Users\Gigietto\Documents\Visual Studio 2019\Projects\Azienda_spedizione_pacch
 C:\Users\Gigietto\Documents\Visual Studio 2019\Projects\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\obj\Debug\ClassLibrarySpedizioni.dll
 C:\Users\Gigietto\Documents\Visual Studio 2019\Projects\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\obj\Debug\ClassLibrarySpedizioni.pdb
 C:\Users\Gigietto\Documents\Visual Studio 2019\Projects\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\obj\Debug\ClassLibrarySpedizioni.csprojAssemblyReference.cache
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\ClassLibrarySpedizioni.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\ClassLibrarySpedizioni.pdb
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\MySql.Data.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\Google.Protobuf.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\Zstandard.Net.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\Renci.SshNet.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\System.Memory.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\System.Buffers.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\bin\Debug\MySql.Data.xml
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\obj\Debug\ClassLibrarySpedizioni.csprojAssemblyReference.cache
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\obj\Debug\ClassLibrarySpedizioni.csproj.CoreCompileInputs.cache
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\obj\Debug\ClassLibrarySpedizioni.csproj.CopyComplete
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\obj\Debug\ClassLibrarySpedizioni.dll
+C:\Users\Gigietto\Source\Repos\Azienda_spedizione_pacchi\ClassLibrarySpedizioni\obj\Debug\ClassLibrarySpedizioni.pdb
