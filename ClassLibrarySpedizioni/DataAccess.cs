@@ -276,10 +276,10 @@ namespace ClassLibrarySpedizioni
             }
         }
 
-        public static void InserisciPacco(string connectionString, Veicolo veicolo, string nomeCorriere, DateTime data)
+        public static void InserisciPacco(string connectionString, string viaggio, string mittente,string destinatario,int volume)
         {
             List<Cliente> lista = new List<Cliente>();
-            string queryString = "INSERT INTO `viaggio` (`idViaggio`, `idVeicolo`, `data`, `nomeCorriere`) VALUES (NULL,@idVeicolo,@data,@nomeCorriere);";
+            string queryString = "INSERT INTO `pacco` (`idPacco`, `idViaggio`, `idMittente`, `idDestinatario`, `volume`) VALUES (NULL,@idViaggio,@idMittente,@idDestinatario,@volume);";
             string messaggio = "";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -290,9 +290,10 @@ namespace ClassLibrarySpedizioni
                 {
                     connection.Open();
                     //parametri per evitare SQL Injection
-                    command.Parameters.AddWithValue("@idVeicolo", veicolo);
-                    command.Parameters.AddWithValue("@data", data);
-                    command.Parameters.AddWithValue("@nomeCorriere", nomeCorriere);
+                    command.Parameters.AddWithValue("@idViaggio", viaggio);
+                    command.Parameters.AddWithValue("@idMittente", mittente);
+                    command.Parameters.AddWithValue("@idDestinatario", destinatario);
+                    command.Parameters.AddWithValue("@volume", volume);
                     command.ExecuteNonQuery();
                     command.Dispose();
 

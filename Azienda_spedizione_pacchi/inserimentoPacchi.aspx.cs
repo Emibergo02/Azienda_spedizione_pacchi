@@ -24,10 +24,7 @@ namespace Azienda_spedizione_pacchi
                 else Response.Redirect("LogIn.aspx");
             fillDropListUtente();
         }
-        public void fillDropListViaggi() 
-        {
-            
-        }
+
         public void fillDropListUtente()
         {
             List<int> idClienti;
@@ -51,6 +48,35 @@ namespace Azienda_spedizione_pacchi
             
         }
 
-        
+        protected void submitReg_Click(object sender, EventArgs e)
+        {
+            if (mittente.SelectedItem.Value.Equals(""))
+            {
+                msgErrorRegister.Text = "mittente vuoto";
+                return;
+            }
+            if (destinatario.SelectedItem.Value.Equals(""))
+            {
+                msgErrorRegister.Text = "destinatario vuoto";
+                return;
+            }
+            if (viaggio.SelectedItem.Value.Equals(""))
+            {
+                msgErrorRegister.Text = "viaggio vuoto";
+                return;
+            }
+            int volumeint;
+            if (!Int32.TryParse(volume.Text, out volumeint))
+            {
+                msgErrorRegister.Text = "volume non è un numero";
+                return;
+            }
+
+            DataAccess.InserisciPacco(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString, viaggio.SelectedItem.Value, mittente.SelectedItem.Value, destinatario.SelectedItem.Value, volumeint);
+            msgErrorRegister.Text = "completato con successo";
+            mittente.Items.Clear();
+            destinatario.Items.Clear();
+            viaggio.Items.Clear();
+        }
     }
 }
