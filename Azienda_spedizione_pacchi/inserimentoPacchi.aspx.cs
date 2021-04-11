@@ -12,6 +12,10 @@ namespace Azienda_spedizione_pacchi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            mittente.Items.Clear();
+            destinatario.Items.Clear();
+            viaggio.Items.Clear();
+            fillDropListUtente();
             if (!Page.IsPostBack)
                 if (Session["clienteLoggato"] != null)
                 {
@@ -19,7 +23,7 @@ namespace Azienda_spedizione_pacchi
                     if (c.Utente.Privilegi != 0) Response.Redirect("LogIn.aspx");
                 }
                 else Response.Redirect("LogIn.aspx");
-            fillDropListUtente();
+            
         }
 
         public void fillDropListUtente()
@@ -68,13 +72,16 @@ namespace Azienda_spedizione_pacchi
                 msgErrorRegister.Text = "volume non è un numero";
                 return;
             }
+            if (Int32.Parse(volume.Text) < 0)
+            {
+                msgErrorRegister.Text = "volume negativo";
+                return;
+            }
 
             DataAccess.InserisciPacco(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString, viaggio.SelectedItem.Value, mittente.SelectedItem.Value, destinatario.SelectedItem.Value, volumeint);
             msgErrorRegister.Text = "completato con successo";
 
-            mittente.Items.Clear();
-            destinatario.Items.Clear();
-            viaggio.Items.Clear();
+            
         }
     }
 }
