@@ -15,13 +15,13 @@ namespace Azienda_spedizione_pacchi
     {
 
         /// <summary>
-        /// Controllo formLog.
+        /// Controllo form1.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formLog;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// Controllo txtUsername.
@@ -78,13 +78,13 @@ namespace Azienda_spedizione_pacchi
         protected global::System.Web.UI.WebControls.TextBox txtindirizzo;
 
         /// <summary>
-        /// Controllo submitReg.
+        /// Controllo submiReg.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button submitReg;
+        protected global::System.Web.UI.WebControls.Button submiReg;
 
         /// <summary>
         /// Controllo msgErrorRegister.
