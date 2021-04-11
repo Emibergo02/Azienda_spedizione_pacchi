@@ -1,8 +1,11 @@
 ﻿using ClassLibrarySpedizioni;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -29,20 +32,20 @@ namespace Azienda_spedizione_pacchi
             List<int> Viaggi;
             string connectionString =
                        ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString;
-            DataAccess.GetDataSource(out Viaggi, out idClienti, out listaNomeCognome, connectionString);
+            DataAccess.GetDataSource(out Viaggi,out idClienti,out listaNomeCognome, connectionString);
 
             var numbersAndWords = idClienti.Zip(listaNomeCognome, (n, w) => new { Number = n, Word = w });
             foreach (var nw in numbersAndWords)
             {
                 mittente.Items.Add(new ListItem(nw.Word, nw.Number.ToString()));
                 destinatario.Items.Add(new ListItem(nw.Word, nw.Number.ToString()));
-
+                
             }
-            foreach (int v in Viaggi)
+            foreach(int v in Viaggi)
             {
                 viaggio.Items.Add(v.ToString());
             }
-
+            
         }
 
         protected void submitReg_Click(object sender, EventArgs e)
@@ -71,7 +74,6 @@ namespace Azienda_spedizione_pacchi
 
             DataAccess.InserisciPacco(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString, viaggio.SelectedItem.Value, mittente.SelectedItem.Value, destinatario.SelectedItem.Value, volumeint);
             msgErrorRegister.Text = "completato con successo";
-
             mittente.Items.Clear();
             destinatario.Items.Clear();
             viaggio.Items.Clear();
