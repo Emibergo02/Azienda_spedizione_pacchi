@@ -1,74 +1,57 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LogIn.aspx.cs" Inherits="Azienda_spedizione_pacchi.LogIn" %>
 
 <!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V10</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="CssVari/util.css">
+	<link rel="stylesheet" type="text/css" href="CssVari/main.css">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style3 {
-            width: 679px;
-            height: 316px;
-            margin-left: 463px;
-        }
-        .auto-style2 {
-            width: 100%;
-            height: 185px;
-        }
-        .auto-style4 {
-            width: 279px;
-        }
-        .auto-style5 {
-            width: 275px;
-        }
-        .auto-style6 {
-            height: 40px;
-        }
-    </style>
 </head>
-<body style="height: 416px">
-    <table class="auto-style1">
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
-    <form  id ="formLog" runat="server">
-    <div class="auto-style3">
-        <table class="auto-style2">
-            <tr>
-                <td>TITOLO FIGO LOGIN</td>
-            </tr>
-            <tr>
-                <td>Nome utente</td>
-            </tr>
-            <tr>
-                <td class="auto-style6">
-                    <asp:TextBox ID="txtUsername" class="auto-style4" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td>Password</td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:TextBox ID="txtPassword" class="auto-style5" runat="server" TextMode="Password"></asp:TextBox>
-                    </td>
-            </tr>
-                        <tr>
-                <td>
-                    <asp:Button ID="submitReg" runat="server" Text="Login" OnClick="submitReg_Click" />
-                    <asp:Literal ID="msgError" runat="server"></asp:Literal>
-                    </td>
-            </tr>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<form class="login100-form validate-form flex-sb flex-w" id ="formLog" runat="server">
+					<span class="login100-form-title p-b-51">
+						Login
+					</span>
 
-        </table>
-    </div>
-        </form>
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
+						 <asp:TextBox ID="txtUsername" class="input100" runat="server" type="text" name="username" placeholder="Username"></asp:TextBox>
+						<span class="focus-input100"></span>
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<asp:TextBox ID="txtPassword" class="input100" runat="server" type="password" name="password" placeholder="Password"></asp:TextBox>
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="flex-sb-m w-full p-t-3 p-b-24">
+
+
+						<div>
+							<a href="Reg.aspx" class="txt1">
+								Register
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn m-t-17">
+						 <asp:Button ID="submitReg" class="login100-form-btn"  runat="server" Text="Login" OnClick="submitReg_Click" />
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+
 </body>
 </html>

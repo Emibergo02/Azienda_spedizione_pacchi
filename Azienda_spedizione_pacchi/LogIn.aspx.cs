@@ -13,19 +13,21 @@ namespace Azienda_spedizione_pacchi
 
         protected void submitReg_Click(object sender, EventArgs e)
         {
+            
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             Cliente c = DataAccess.OttieniListaClienti(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString).Find(client => client.Utente.Username.Equals(username));
 
             if (c.Utente.Password.Equals(DataAccess.ComputeSha256Hash("questoèunsalt", password)))
             {
-                msgError.Text = "Login effettuato";
+               /* msgError.Text = "Login effettuato";*/
                 Session["clienteLoggato"] = c;
                 if (c.Utente.Privilegi == 1)
                     Response.Redirect("UserView.aspx");
                 else
                     Response.Redirect("AdminView.aspx");
             }
+            
         }
 
     }

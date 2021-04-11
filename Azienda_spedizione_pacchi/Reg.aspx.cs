@@ -44,6 +44,8 @@ namespace Azienda_spedizione_pacchi
             }
             DataAccess.InserisciCliente(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString, txtNome.Text, txtCognome.Text, txtindirizzo.Text, txtUsername.Text, DataAccess.ComputeSha256Hash("questoèunsalt", txtPassword.Text), 1);
             msgErrorRegister.Text = "Bene";
+            /*se la registrazione è andata a buon fine l'utente viene traferito al login*/
+            Response.Redirect("Login.aspx");
         }
     }
 }
