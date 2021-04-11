@@ -40,7 +40,7 @@
                     <li><a href="Login.aspx"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Torna al login</a>
                     </li>
 
-                    </li>
+
                 </ul>
             </div>
             <!-- /#sidebar-wrapper -->

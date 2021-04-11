@@ -2,7 +2,6 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text;
@@ -65,7 +64,7 @@ namespace ClassLibrarySpedizioni
                     {
                         Veicolo veicolo = new Veicolo(dr["targa"].ToString(), dr["marca"].ToString(), dr["modello"].ToString(),
                             (int)dr["capacitaMax"], (int)dr["pesoMax"]);
-                        
+
                         lista.Add(veicolo);
                     }
                 }
@@ -128,7 +127,7 @@ namespace ClassLibrarySpedizioni
 
                     foreach (DataRow dr in dt.Rows)
                     {
-                        Pacco p = new Pacco((int)dr["idPacco"], listaViaggi.Find(x => x.IdViaggio == (int)dr["idViaggio"]), listaClienti.Find(x => x.IdCliente == (int)dr["idMittente"]), listaClienti.Find(x => x.IdCliente == (int)dr["idDestinatario"]), (int)dr["Volume"], (int)dr["numOrdineConsegna"]);
+                        Pacco p = new Pacco((int)dr["idPacco"], listaViaggi.Find(x => x.IdViaggio == (int)dr["idViaggio"]), listaClienti.Find(x => x.IdCliente == (int)dr["idMittente"]), listaClienti.Find(x => x.IdCliente == (int)dr["idDestinatario"]), (int)dr["Volume"]);
                     }
                 }
                 catch (Exception ex)
@@ -138,13 +137,50 @@ namespace ClassLibrarySpedizioni
             }
             return lista;
         }
-        public static List<Pacco> OttieniListaPacchi(string connectionString)
+
+        //public static List<Pacco> OttieniListaPacchi(string connectionString, Cliente c)
+        //{
+        //    List<Pacco> lista = new List<Pacco>();
+        //    string queryString = "SELECT cliente.nome AS nomemittente,cliente.cognome AS cognomemittente,subquery.* FROM cliente" +
+        //        "INNER JOIN(SELECT idPacco, idMittente, volume, nome, cognome, indirizzo, data FROM pacco" +
+        //        "INNER JOIN cliente ON cliente.idCliente= pacco.idDestinatario" +
+        //        "INNER JOIN viaggio ON viaggio.idViaggio= pacco.idViaggio" +
+        //        "WHERE idDestinatario = "+c.IdCliente+") AS subquery" +
+        //        "ON subquery.idMittente = cliente.idCliente";
+        //    string messaggio = "";
+
+        //    using (MySqlConnection connection = new MySqlConnection(connectionString))
+        //    {
+        //        MySqlCommand command = new MySqlCommand(queryString, connection);
+
+        //        try
+        //        {
+        //            connection.Open();
+        //            MySqlDataAdapter da = new MySqlDataAdapter(command);
+        //            DataTable dt = new DataTable();
+        //            da.Fill(dt);
+
+        //            foreach (DataRow dr in dt.Rows)
+        //            {
+                        
+                        
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            messaggio = ex.Message;
+        //        }
+        //    }
+        //    return lista;
+        //}
+
+        public static List<Pacco> OttieniListaPacchi(string connectionString,int idCliente)
         {
             List<Viaggio> listaViaggi = OttieniListaViaggi(connectionString);
             List<Cliente> listaClienti = OttieniListaClienti(connectionString);
 
             List<Pacco> lista = new List<Pacco>();
-            string queryString = "SELECT * FROM Pacco";
+            string queryString = "SELECT * FROM pacco INNER JOIN cliente ON cliente.idCliente=pacco.idDestinatario WHERE idDestinatario=" + idCliente + ";";
             string messaggio = "";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -160,17 +196,18 @@ namespace ClassLibrarySpedizioni
 
                     foreach (DataRow dr in dt.Rows)
                     {
-                        Pacco p = new Pacco((int)dr["idPacco"], listaViaggi.Find(x => x.IdViaggio == (int)dr["idViaggio"]), listaClienti.Find(x => x.IdCliente == (int)dr["idMittente"]), listaClienti.Find(x => x.IdCliente == (int)dr["idDestinatario"]), (int)dr["Volume"], (int)dr["numOrdineConsegna"]);
+                        Pacco p = new Pacco((int)dr["idPacco"], listaViaggi.Find(x => x.IdViaggio == (int)dr["idViaggio"]), listaClienti.Find(x => x.IdCliente == (int)dr["idMittente"]), listaClienti.Find(x => x.IdCliente == (int)dr["idDestinatario"]), (int)dr["Volume"]);
+                        lista.Add(p);
                     }
                 }
                 catch (Exception ex)
                 {
-                    messaggio = ex.Message;
+                    Console.WriteLine(ex.Message);
                 }
             }
             return lista;
         }
-        public static void InserisciCliente(string connectionString,string nomeCliente,string cognomeCliente,string indirizzo,string username,string password,int privilegi)
+        public static void InserisciCliente(string connectionString, string nomeCliente, string cognomeCliente, string indirizzo, string username, string password, int privilegi)
         {
             List<Cliente> lista = new List<Cliente>();
             string queryString = "INSERT INTO cliente (idCliente,nome,cognome,indirizzo) VALUES(NULL,@NomeCliente,@CognomeCliente,@IndirizzoCliente);" +
@@ -204,7 +241,7 @@ namespace ClassLibrarySpedizioni
         public static void InserisciVeicolo(string connectionString, string targa, string marca, string modello, int capacitàMax, int pesoMax)
         {
             List<Cliente> lista = new List<Cliente>();
-            string queryString = "INSERT INTO `veicolo` (`targa`, `marca`, `modello`, `capacitaMax`, `pesoMax`) VALUES ('@targa', '@marca', '@modello', '@capacitàMax', '@pesoMax');";
+            string queryString = "INSERT INTO `veicolo` (`targa`, `marca`, `modello`, `capacitaMax`, `pesoMax`) VALUES (@targa, @marca, @modello, @capacitàMax, @pesoMax);";
             string messaggio = "";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -220,7 +257,7 @@ namespace ClassLibrarySpedizioni
                     command.Parameters.AddWithValue("@modello", modello);
                     command.Parameters.AddWithValue("@capacitàMax", capacitàMax);
                     command.Parameters.AddWithValue("@pesoMax", pesoMax);
-                   
+
                     command.ExecuteNonQuery();
                     command.Dispose();
 
@@ -259,13 +296,13 @@ namespace ClassLibrarySpedizioni
                 }
             }
         }
-        public static string ComputeSha256Hash(string salt,string rawData)
+        public static string ComputeSha256Hash(string salt, string rawData)
         {
             // Create a SHA256   
             using (SHA256 sha256Hash = SHA256.Create())
             {
                 // ComputeHash - returns byte array  
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(salt+rawData));
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(salt + rawData));
 
                 // Convert byte array to a string   
                 StringBuilder builder = new StringBuilder();
@@ -277,7 +314,7 @@ namespace ClassLibrarySpedizioni
             }
         }
 
-        public static void InserisciPacco(string connectionString, string viaggio, string mittente,string destinatario,int volume)
+        public static void InserisciPacco(string connectionString, string viaggio, string mittente, string destinatario, int volume)
         {
             List<Cliente> lista = new List<Cliente>();
             string queryString = "INSERT INTO `pacco` (`idPacco`, `idViaggio`, `idMittente`, `idDestinatario`, `volume`) VALUES (NULL,@idViaggio,@idMittente,@idDestinatario,@volume);";
@@ -308,12 +345,12 @@ namespace ClassLibrarySpedizioni
         /*
          * 
          */
-        public static void GetDataSource(out List<int> Viaggi,out List<int> idCLienti, out List<string> listaNomeCognome, string connectionString)
+        public static void GetDataSource(out List<int> Viaggi, out List<int> idCLienti, out List<string> listaNomeCognome, string connectionString)
         {
             Viaggi = new List<int>();
             idCLienti = new List<int>();
             listaNomeCognome = new List<string>();
-            List <Cliente> lista = OttieniListaClienti(connectionString);
+            List<Cliente> lista = OttieniListaClienti(connectionString);
             List<Viaggio> V = OttieniListaViaggi(connectionString);
             List<string> listaDropDown = new List<string>();
             foreach (Cliente c in lista)
@@ -321,7 +358,7 @@ namespace ClassLibrarySpedizioni
                 idCLienti.Add(c.IdCliente);
                 listaNomeCognome.Add(c.Cognome + " " + c.Nome);
             }
-            foreach(Viaggio v in V)
+            foreach (Viaggio v in V)
             {
                 Viaggi.Add(v.IdViaggio);
             }
