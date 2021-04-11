@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserView.aspx.cs" Inherits="Azienda_spedizione_pacchi.UserView" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="info.aspx.cs" Inherits="Azienda_spedizione_pacchi.info" %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="Andrea Lombardo,Emiliano Bergonzani">
     <link href="CssVari/admin.css" rel="stylesheet">
-    <link href="CssVari/table.css" rel="stylesheet">
+    <link href="CssVari/info.css" rel="stylesheet">
 </head>
 <body>
     <form id="form2" runat="server">
@@ -20,7 +21,7 @@
             <div id="sidebar-wrapper">
                 <br />
                 <ul class="sidebar-nav">
-                    <div style="text-align: center; background-image: url(Images/bg.jpg); height: 170px;">
+                    <div style="text-align: center;; height: 170px;">
 
                         <br />
 
@@ -30,9 +31,9 @@
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
                     <br />
 
-                    <li><a href=""><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;I miei Pacchi</a>
+                    <li><a href="UserView.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;I miei Pacchi</a>
                     </li>
-                    <li><a href="info.aspx"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Info Utente</a>
+                    <li><a href=""><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Info Utente</a>
                     </li>
                     <li><a href="Login.aspx"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Torna al login</a>
                     </li>
@@ -52,35 +53,32 @@
                         <div class="col-lg-12">
                             <h1>User HomePage</h1>
                             <p>
-                                Benvenuto nell'Area clienti
+                                Benvenuto nell'Area informazioni cliente
                             </p>
+                            <br />
+                            <h2>Informazioni generiche</h2>
                             <div class="limiter">
                                 <div class="container-table100">
                                     <div class="wrap-table100">
                                         <div class="table100">
                                             <table>
-                                                <table>
-                                                    <tr class="table100-head">
-                                                        <th class="column1">Nome Mittente</th>
-                                                        <th class="column2">Cognome </th>
-                                                        <th class="column3">Nome Destinatario</th>
-                                                        <th class="column4">Cognome </th>
-                                                        <th class="column5">Volume Pacco</th>
-                                                        <th class="column6">Data del Viaggio</th>
-                                                    </tr>
-                                                    <asp:Repeater ID="rptViaggi" runat="server">
                                                         <ItemTemplate>
                                                             <tr>
-                                                                <td class="column1"><%#Eval("Mittente.Nome") %></td>
-                                                                <td class="column2"><%#Eval("Mittente.Cognome") %></td>
-                                                                <td class="column3"><%#Eval("Destinatario.Nome") %></td>
-                                                                <td class="column4"><%#Eval("Destinatario.Cognome") %></td>
-                                                                <td class="column5"><%#Eval("Volume") %></td>
-                                                                <td class="column6"><%#Eval("Viaggio.Data").ToString().Substring(0,10) %></td>
-
+                                                                <td class="column1">Nome</td>
+                                                                <td class="column2"><asp:Literal ID="nome" runat="server"></asp:Literal></td>
+                                                            </tr>
+                                                             <td class="column1">Cognome</td>
+                                                                <td class="column2"><asp:Literal ID="cognome" runat="server"></asp:Literal></td>
+                                                            <tr>
+                                                                 <td class="column1">Username</td>
+                                                                <td class="column2"><asp:Literal ID="username" runat="server"></asp:Literal></td>
+                                                            </tr>
+                                                            <tr>
+                                                                 <td class="column1">Indirizzo</td>
+                                                                <td class="column2"><asp:Literal ID="indirizzo" runat="server"></asp:Literal></td>
                                                             </tr>
                                                         </ItemTemplate>
-                                                    </asp:Repeater>
+
                                                 </table>
                                         </div>
                                     </div>
@@ -94,4 +92,3 @@
     </form>
 </body>
 </html>
-

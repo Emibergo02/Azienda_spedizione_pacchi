@@ -45,7 +45,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data">
-      <HintPath>..\MySql.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 8.0.23\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -71,10 +71,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminView.aspx" />
+    <Content Include="CssVari\admin.css" />
     <Content Include="CssVari\main.css" />
-    <Content Include="CssVari\StyleSheet1.css" />
+    <Content Include="CssVari\info.css" />
+    <Content Include="CssVari\table.css" />
     <Content Include="CssVari\util.css" />
-    <Content Include="dettaglioViaggio.aspx" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -84,6 +85,8 @@
     <Content Include="fonts\montserrat\OFL.txt" />
     <Content Include="fonts\ubuntu\UFL.txt" />
     <Content Include="Global.asax" />
+    <Content Include="images\bg.png" />
+    <Content Include="info.aspx" />
     <Content Include="inserimentoPacchi.aspx" />
     <Content Include="inserimentoVeicoli.aspx" />
     <Content Include="InserimentoViaggi.aspx" />
@@ -101,15 +104,15 @@
     <Compile Include="AdminView.aspx.designer.cs">
       <DependentUpon>AdminView.aspx</DependentUpon>
     </Compile>
-    <Compile Include="dettaglioViaggio.aspx.cs">
-      <DependentUpon>dettaglioViaggio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="dettaglioViaggio.aspx.designer.cs">
-      <DependentUpon>dettaglioViaggio.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="info.aspx.cs">
+      <DependentUpon>info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="info.aspx.designer.cs">
+      <DependentUpon>info.aspx</DependentUpon>
     </Compile>
     <Compile Include="inserimentoPacchi.aspx.cs">
       <DependentUpon>inserimentoPacchi.aspx</DependentUpon>

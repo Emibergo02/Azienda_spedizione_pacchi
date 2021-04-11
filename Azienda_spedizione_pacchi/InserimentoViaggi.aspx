@@ -24,7 +24,7 @@
 
                         <br />
 
-                        <asp:Image runat="server" ImageUrl="~/Images/hitesh.png"
+                        <asp:Image runat="server" ImageUrl="~/Images/bg.png"
                             ID="profileimg" />
                     </div>
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
