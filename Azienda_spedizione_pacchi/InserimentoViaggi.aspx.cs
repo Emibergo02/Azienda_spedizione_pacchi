@@ -1,11 +1,7 @@
 ﻿using ClassLibrarySpedizioni;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Azienda_spedizione_pacchi.adminPage
 {
@@ -21,7 +17,7 @@ namespace Azienda_spedizione_pacchi.adminPage
                 }
                 else Response.Redirect("LogIn.aspx");
 
-            
+
             foreach (Veicolo v in DataAccess.OttieniListaVeicoli(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString))
             {
                 ddlTarghe.Items.Add(v.Targa);
@@ -37,9 +33,11 @@ namespace Azienda_spedizione_pacchi.adminPage
                 return;
             }
             DateTime dataViaggio;
-            try {
+            try
+            {
                 dataViaggio = Convert.ToDateTime(data.Text);
-            }catch (FormatException fe)
+            }
+            catch (FormatException fe)
             {
                 msgErrorRegister.Text = "data con formato sbagliato";
                 return;

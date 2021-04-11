@@ -1,7 +1,6 @@
 ﻿using ClassLibrarySpedizioni;
 using System;
 using System.Configuration;
-using System.Security.Cryptography;
 
 namespace Azienda_spedizione_pacchi
 {
@@ -16,8 +15,8 @@ namespace Azienda_spedizione_pacchi
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            Cliente c=DataAccess.OttieniListaClienti(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString).Find(client => client.Utente.Username.Equals(username));
-            
+            Cliente c = DataAccess.OttieniListaClienti(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString).Find(client => client.Utente.Username.Equals(username));
+
             if (c.Utente.Password.Equals(DataAccess.ComputeSha256Hash("questoèunsalt", password)))
             {
                 msgError.Text = "Login effettuato";

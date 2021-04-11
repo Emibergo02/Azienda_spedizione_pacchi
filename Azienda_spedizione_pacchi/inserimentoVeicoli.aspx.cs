@@ -1,12 +1,8 @@
 ﻿using ClassLibrarySpedizioni;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Azienda_spedizione_pacchi
 {
@@ -22,8 +18,8 @@ namespace Azienda_spedizione_pacchi
                 }
                 else Response.Redirect("LogIn.aspx");
 
-            
-            
+
+
         }
 
         protected void submitReg_Click(object sender, EventArgs e)
@@ -45,7 +41,7 @@ namespace Azienda_spedizione_pacchi
                 return;
             }
             int isNum = 0;
-            
+
             if (int.TryParse(capacita.Text, out isNum))
             {
                 if (isNum < 0)
@@ -61,7 +57,7 @@ namespace Azienda_spedizione_pacchi
             }
             isNum = 0;
 
-            if(int.TryParse(pesoMax.Text, out isNum))
+            if (int.TryParse(pesoMax.Text, out isNum))
             {
                 if (isNum < 0)
                 {
@@ -76,10 +72,10 @@ namespace Azienda_spedizione_pacchi
             }
             string connectionString =
                        ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString;
-            DataAccess.InserisciVeicolo(connectionString, targa.Text,marca.Text,modello.Text,int.Parse(capacita.Text),int.Parse(pesoMax.Text));
+            DataAccess.InserisciVeicolo(connectionString, targa.Text, marca.Text, modello.Text, int.Parse(capacita.Text), int.Parse(pesoMax.Text));
 
         }
 
 
-        }
     }
+}

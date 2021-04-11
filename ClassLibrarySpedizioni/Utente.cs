@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClassLibrarySpedizioni
+﻿namespace ClassLibrarySpedizioni
 {
     public class Utente
     {
@@ -12,7 +6,7 @@ namespace ClassLibrarySpedizioni
         private string password;
         private int privilegi;
 
-        public Utente(string username,string password,int privilegi)
+        public Utente(string username, string password, int privilegi)
         {
             this.username = username;
             this.password = password;
