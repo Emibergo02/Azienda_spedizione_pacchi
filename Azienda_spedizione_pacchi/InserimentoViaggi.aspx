@@ -30,13 +30,16 @@
                     </div>
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
                     <br />
-
+                    <li><a href="AdminView.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Home</a>
+                    </li>
                     <li><a href="InserimentoViaggi.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;<b>Viaggi</b></a>
                     </li>
                     <li><a href="inserimentoVeicoli.aspx"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Veicoli</a>
                     </li>
                     <li><a href="inserimentoPacchi.aspx"><span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Pacchi</a>
                     </li>
+                   <!-- <li><a href="dettaglioViaggio.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Dettagli Viaggio</a>
+                    </li>-->
                     <li><a href="Login.aspx"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Torna al login</a>
                     </li>
 

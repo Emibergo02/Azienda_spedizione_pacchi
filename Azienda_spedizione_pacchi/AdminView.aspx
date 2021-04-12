@@ -28,7 +28,9 @@
                     </div>
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
                     <br />
-
+                    
+                    <li><a href="AdminView.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Home</a>
+                    </li>
                     <li><a href="InserimentoViaggi.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Viaggi</a>
                     </li>
                     <li><a href="inserimentoVeicoli.aspx"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Veicoli</a>
@@ -36,7 +38,6 @@
                     <li><a href="inserimentoCorrieri.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Corrieri</a>
                     </li>
                     <li><a href="inserimentoPacchi.aspx"><span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Pacchi</a>
-                    </li>
                     <li><a href="Login.aspx"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Torna al login</a>
                     </li>
 
@@ -56,13 +57,21 @@
                             <p>
                                 A lato è presente un menu che ti permetterà di selezionare quale ambito vuoi andare a modificare, puoi aggiungere elementi direttamente al tuo DB.
                             </p>
-                            <h3>TABELLA PACCHI</h3>
+                            <br />
+                            <br />
+                            <h3>Ordinamento tabella</h3>
                             <asp:DropDownList ID="ddlSort" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged" AutoPostBack="true" runat="server">
                                   <asp:ListItem Selected="True" Value="Cliente"> Nome Destinatario </asp:ListItem>
                                   <asp:ListItem Value="Consegna"> Consegna </asp:ListItem>
                                   <asp:ListItem Value="Volume"> Volume </asp:ListItem>
                             </asp:DropDownList>
-                            <p>Vedi solo pacchi con viaggio assegnato</p><asp:CheckBox ID="cbvedidata" runat="server"/>
+
+                            <h3>Attiva il filtro per pacchi con viaggio assegnato</h3>
+                            <asp:CheckBox ID="cbvedidata" runat="server" />
+                            <br />
+                            <br />
+                            <br />
+                            <h1 style="text-align:center">TABELLA PACCHI</h1>
                            <table>
                                 <tr class="table100-head">
                                     <th class="column1">Id Pacco</th>
@@ -89,21 +98,30 @@
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </table>
-
-                            <table>
+                            <br />
+                            <br />
+                            <br />
+                            <h1 style="text-align:center">TABELLA VIAGGI </h1>
+                            <table  style=" align-content:center" width="50%">
                                 <tr class="table100-head">
                                     <th class="column1">Numer Viaggio</th>
-                                    <th class="column2">Targa Mezzo </th>
-                                    <th class="column3">Data del viaggio</th>
-                                    <th class="column4">Nome corriere</th>
+                                    <th class="column2"></th>
+                                    <th class="column3">Targa Mezzo </th>
+                                    <th class="column4"></th>
+                                    <th class="column5">Data del viaggio</th>
+                                    <th class="column6"></th>
+                                    <th class="column7">Nome corriere</th>
                                 </tr>
                                 <asp:Repeater ID="rptViaggi" runat="server">
                                     <ItemTemplate>
                                         <tr>
                                             <td class="column1"><%#Eval("idViaggio") %></td>
-                                            <td class="column2"><%#Eval("Veicolo.Targa") %></td>
-                                            <td class="column3"><%#Eval("Data").ToString().Substring(0,10) %></td>
-                                            <td class="column4"><%#Eval("NomeCorriere") %></td>
+                                            <td class="column2"></td>
+                                            <td class="column3"><%#Eval("Veicolo.Targa") %></td>
+                                            <td class="column4"></td>
+                                            <td class="column5"><%#Eval("Data").ToString().Substring(0,10) %></td>
+                                            <td class="column6"></td>
+                                            <td class="column7"><%#Eval("NomeCorriere") %></td>
 
                                         </tr>
                                     </ItemTemplate>
