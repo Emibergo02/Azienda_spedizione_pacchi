@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="Andrea Lombardo,Emiliano Bergonzani">
     <link href="CssVari/admin.css" rel="stylesheet">
-    <link href="CssVari/info.css" rel="stylesheet">
+    <link href="CssVari/table.css" rel="stylesheet">
 </head>
 <body>
     <form id="form2" runat="server">

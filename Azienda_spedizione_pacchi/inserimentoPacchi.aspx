@@ -23,7 +23,7 @@
 
                         <br />
 
-                        <asp:Image runat="server" ImageUrl="~/Images/bg.png" 
+                        <asp:Image runat="server"
                             ID="profileimg" />
                     </div>
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
@@ -51,7 +51,7 @@
                             <p>
                                 Benvenuto nella pagina da amministratore per l'inserimento di nuovi veicoli. compili il form sottostante grazie.
                             </p>
-                            <form id="formLog" enctype="multipart/form-data" runat="server">
+                            <form id="formLog" runat="server">
                                 <div class="auto-style3">
                                     <table class="auto-style2">
 

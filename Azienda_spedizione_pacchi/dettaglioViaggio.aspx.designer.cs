@@ -11,7 +11,7 @@ namespace Azienda_spedizione_pacchi
 {
 
 
-    public partial class viaggi
+    public partial class dettaglioViaggio
     {
 
         /// <summary>
@@ -24,12 +24,21 @@ namespace Azienda_spedizione_pacchi
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo rptViaggi.
+        /// Controllo profileimg.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptViaggi;
+        protected global::System.Web.UI.WebControls.Image profileimg;
+
+        /// <summary>
+        /// Controllo rptPacchi.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptPacchi;
     }
 }

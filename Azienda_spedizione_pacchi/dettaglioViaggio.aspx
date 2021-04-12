@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminView.aspx.cs" Inherits="Azienda_spedizione_pacchi.AdminView" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="dettaglioViaggio.aspx.cs" Inherits="Azienda_spedizione_pacchi.dettaglioViaggio" %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,19 +24,13 @@
 
                         <br />
 
-
-                        <asp:Image runat="server" ID="profileimg" />
-                        <asp:FileUpload ID="fileUpload1" runat="server" />
-                        <asp:Button id="UploadButton" 
-                            Text="Upload file"
-                            OnClick="btnupload_Click"
-                            runat="server">
-                        </asp:Button>    
-                           
+                                                <asp:Image runat="server" ID="profileimg" />
                     </div>
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
                     <br />
-
+                    
+                    <li><a href="AdminView.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Home</a>
+                    </li>
                     <li><a href="InserimentoViaggi.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Viaggi</a>
                     </li>
                     <li><a href="inserimentoVeicoli.aspx"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Veicoli</a>
@@ -43,6 +38,8 @@
                     <li><a href="inserimentoCorrieri.aspx"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Corrieri</a>
                     </li>
                     <li><a href="inserimentoPacchi.aspx"><span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Pacchi</a>
+                    </li>
+                    <li><a href="dettaglioViaggio.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Dettagli Viaggio</a>
                     </li>
                     <li><a href="Login.aspx"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Torna al login</a>
                     </li>
@@ -56,20 +53,15 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>Admin HomePage</h1>
-                            <p>
-                                Benvenuto nella pagina da amministratore dell nostro gestionale.
-                            </p>
-                            <p>
-                                A lato è presente un menu che ti permetterà di selezionare quale ambito vuoi andare a modificare, puoi aggiungere elementi direttamente al tuo DB.
-                            </p>
-                            <h3>TABELLA PACCHI</h3>
-                            <asp:DropDownList ID="ddlSort" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged" AutoPostBack="true" runat="server">
-                                  <asp:ListItem Selected="True" Value="Cliente"> Nome Destinatario </asp:ListItem>
-                                  <asp:ListItem Value="Consegna"> Consegna </asp:ListItem>
-                                  <asp:ListItem Value="Volume"> Volume </asp:ListItem>
-                            </asp:DropDownList>
-                            <p>Vedi solo pacchi con viaggio assegnato</p><asp:CheckBox ID="cbvedidata" runat="server"/>
+                            <h1>DETTAGLIO DEI VIAGGI</h1>
+ 
+                            <br />
+                            <br />
+
+                            <br />
+                            <br />
+                            <br />
+                            <h1 style="text-align:center">TABELLA PACCHI DEL VIAGGIO</h1>
                            <table>
                                 <tr class="table100-head">
                                     <th class="column1">Id Pacco</th>
@@ -92,27 +84,6 @@
                                             <td class="column6"><%#Eval("Volume") %></td>
                                             <td class="column7"><%#Eval("Viaggio.Data").ToString().Substring(0,10) %></td>
                                             <td class="column7"><%#Eval("Destinatario.Indirizzo") %></td>
-                                        </tr>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                            </table>
-
-                            <table>
-                                <tr class="table100-head">
-                                    <th class="column1">Numer Viaggio</th>
-                                    <th class="column2">Targa Mezzo </th>
-                                    <th class="column3">Data del viaggio</th>
-                                    <th class="column4">Nome corriere</th>
-                                    <th class="column5">Dettagio</th>
-                                </tr>
-                                <asp:Repeater ID="rptViaggi" runat="server">
-                                    <ItemTemplate>
-                                        <tr>
-                                            <td class="column1"><%#Eval("idViaggio") %></td>
-                                            <td class="column2"><%#Eval("Veicolo.Targa") %></td>
-                                            <td class="column3"><%#Eval("Data").ToString().Substring(0,10) %></td>
-                                            <td class="column4"><%#Eval("NomeCorriere") %></td>
-                                            <td class="column4"> <a href="dettaglioViaggio.aspx?idViaggio=<%#Eval("idViaggio") %>">Dettaglio</a> </td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>

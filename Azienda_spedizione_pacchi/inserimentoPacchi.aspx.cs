@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,9 +22,15 @@ namespace Azienda_spedizione_pacchi
                 {
                     Cliente c = (Cliente)Session["clienteLoggato"];
                     if (c.Utente.Privilegi != 0) Response.Redirect("LogIn.aspx");
+                    if (File.Exists(Server.MapPath(Path.Combine("~/Uploads/", c.IdCliente + ".png"))))
+                    {
+                        profileimg.ImageUrl = "Uploads/" + c.IdCliente + ".png?" + DateTime.Now.Ticks.ToString();
+
+                    }
+                    else profileimg.ImageUrl = "Uploads/default.jpg";
                 }
                 else Response.Redirect("LogIn.aspx");
-            
+
         }
 
         public void fillDropListUtente()
@@ -82,7 +89,7 @@ namespace Azienda_spedizione_pacchi
             DataAccess.InserisciPacco(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString, viaggio.SelectedItem.Value, mittente.SelectedItem.Value, destinatario.SelectedItem.Value, volumeint);
             msgErrorRegister.Text = "completato con successo";
 
-            
+
         }
     }
 }

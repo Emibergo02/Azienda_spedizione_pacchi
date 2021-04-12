@@ -1,6 +1,7 @@
 ﻿using ClassLibrarySpedizioni;
 using System;
 using System.Configuration;
+using System.IO;
 using System.Web.UI;
 
 namespace Azienda_spedizione_pacchi.adminPage
@@ -14,6 +15,12 @@ namespace Azienda_spedizione_pacchi.adminPage
                 {
                     Cliente c = (Cliente)Session["clienteLoggato"];
                     if (c.Utente.Privilegi != 0) Response.Redirect("LogIn.aspx");
+                    if (File.Exists(Server.MapPath(Path.Combine("~/Uploads/", c.IdCliente + ".png"))))
+                    {
+                        profileimg.ImageUrl = "Uploads/" + c.IdCliente + ".png?" + DateTime.Now.Ticks.ToString();
+
+                    }
+                    else profileimg.ImageUrl = "Uploads/default.jpg";
                 }
                 else Response.Redirect("LogIn.aspx");
 

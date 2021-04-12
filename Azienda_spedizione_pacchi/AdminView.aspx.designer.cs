@@ -33,6 +33,24 @@ namespace Azienda_spedizione_pacchi
         protected global::System.Web.UI.WebControls.Image profileimg;
 
         /// <summary>
+        /// Controllo fileUpload1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileUpload1;
+
+        /// <summary>
+        /// Controllo UploadButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UploadButton;
+
+        /// <summary>
         /// Controllo ddlSort.
         /// </summary>
         /// <remarks>

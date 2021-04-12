@@ -73,9 +73,9 @@
     <Content Include="AdminView.aspx" />
     <Content Include="CssVari\admin.css" />
     <Content Include="CssVari\main.css" />
-    <Content Include="CssVari\info.css" />
     <Content Include="CssVari\table.css" />
     <Content Include="CssVari\util.css" />
+    <Content Include="dettaglioViaggio.aspx" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -85,7 +85,6 @@
     <Content Include="fonts\montserrat\OFL.txt" />
     <Content Include="fonts\ubuntu\UFL.txt" />
     <Content Include="Global.asax" />
-    <Content Include="images\bg.png" />
     <Content Include="info.aspx" />
     <Content Include="inserimentoPacchi.aspx" />
     <Content Include="inserimentoVeicoli.aspx" />
@@ -93,7 +92,6 @@
     <Content Include="LogIn.aspx" />
     <Content Include="Reg.aspx" />
     <Content Include="UserView.aspx" />
-    <Content Include="viaggi.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +101,13 @@
     </Compile>
     <Compile Include="AdminView.aspx.designer.cs">
       <DependentUpon>AdminView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dettaglioViaggio.aspx.cs">
+      <DependentUpon>dettaglioViaggio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dettaglioViaggio.aspx.designer.cs">
+      <DependentUpon>dettaglioViaggio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,13 +161,6 @@
     </Compile>
     <Compile Include="UserView.aspx.designer.cs">
       <DependentUpon>UserView.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="viaggi.aspx.cs">
-      <DependentUpon>viaggi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="viaggi.aspx.designer.cs">
-      <DependentUpon>viaggi.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -255,10 +253,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrarySpedizioni\ClassLibrarySpedizioni.csproj">
       <Project>{a10180e3-45ab-4aff-9721-61d0ec621931}</Project>

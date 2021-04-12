@@ -1,10 +1,7 @@
 ﻿using ClassLibrarySpedizioni;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.IO;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Azienda_spedizione_pacchi
 {
@@ -22,6 +19,12 @@ namespace Azienda_spedizione_pacchi
                         Response.Redirect("LogIn.aspx");
                         return;
                     }
+                    if (File.Exists(Server.MapPath(Path.Combine("~/Uploads/", c.IdCliente + ".png"))))
+                    {
+                        profileimg.ImageUrl = "Uploads/" + c.IdCliente + ".png?" + DateTime.Now.Ticks.ToString();
+
+                    }
+                    else profileimg.ImageUrl = "Uploads/default.jpg";
                 }
                 else
                 {
@@ -42,7 +45,7 @@ namespace Azienda_spedizione_pacchi
 
         private Cliente loadData()
         {
-           Cliente c = (Cliente)Session["clienteLoggato"];
+            Cliente c = (Cliente)Session["clienteLoggato"];
             return c;
 
         }

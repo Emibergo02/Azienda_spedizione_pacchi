@@ -31,14 +31,17 @@ namespace Azienda_spedizione_pacchi
                 }
             else
             {
-               
+
                 return;
             }
             //Immagine utente
             if (File.Exists(Server.MapPath(Path.Combine("~/Uploads/", c.IdCliente + ".png"))))
-                profileimg.ImageUrl = "Uploads/" + c.IdCliente + ".png";
+            {
+                profileimg.ImageUrl = "Uploads/" + c.IdCliente + ".png?" + DateTime.Now.Ticks.ToString();
+
+            }
             else profileimg.ImageUrl = "Uploads/default.jpg";
-            List<Pacco> listaPacchi = DataAccess.OttieniListaPacchi(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString,c.IdCliente);
+            List<Pacco> listaPacchi = DataAccess.OttieniListaPacchi(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString, c.IdCliente);
 
 
             rptViaggi.DataSource = listaPacchi;
@@ -52,9 +55,11 @@ namespace Azienda_spedizione_pacchi
             if (fileUpload1.HasFile)
             {
                 Cliente c = (Cliente)Session["clienteLoggato"];
-                string path = Server.MapPath(Path.Combine("~/Uploads/", c.IdCliente+ ".png"));
-                Image png=Image.FromStream(fileUpload1.PostedFile.InputStream);
+                string path = Server.MapPath(Path.Combine("~/Uploads/", c.IdCliente + ".png"));
+                if (File.Exists(path)) File.Delete(path);
+                Image png = Image.FromStream(fileUpload1.PostedFile.InputStream);
                 png.Save(path, ImageFormat.Png);
+                profileimg.ImageUrl = "Uploads/" + c.IdCliente + ".png?" + DateTime.Now.Ticks.ToString();
             }
         }
     }

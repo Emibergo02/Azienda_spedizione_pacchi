@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ClassLibrarySpedizioni
+﻿namespace ClassLibrarySpedizioni
 {
     public class Pacco
     {
@@ -25,6 +23,6 @@ namespace ClassLibrarySpedizioni
         public Cliente Destinatario { get => destinatario; set => destinatario = value; }
         public int Volume { get => volume; set => volume = value; }
         public Viaggio Viaggio { get => viaggio; set => viaggio = value; }
-       
+
     }
 }

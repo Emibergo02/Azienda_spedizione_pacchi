@@ -34,7 +34,6 @@
 
                     </div>
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
-                    <br />
 
                     <li><a href=""><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;I miei Pacchi</a>
                     </li>

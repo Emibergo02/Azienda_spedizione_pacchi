@@ -95,7 +95,7 @@ namespace ClassLibrarySpedizioni
 
                     foreach (DataRow dr in dt.Rows)
                     {
-                        
+
                         Utente utente = new Utente(dr["username"].ToString(), dr["password"].ToString(), (int)dr["privilegi"]);
                         Cliente c = new Cliente((int)dr["idCliente"], dr["nome"].ToString(), dr["cognome"].ToString(), dr["indirizzo"].ToString(), utente);
                         lista.Add(c);
@@ -128,8 +128,8 @@ namespace ClassLibrarySpedizioni
                     foreach (DataRow dr in dt.Rows)
                     {
                         Utente utente = null;
-                        if(!dr["username"].ToString().Equals(""))
-                        utente = new Utente(dr["username"].ToString(), dr["password"].ToString(), (int)dr["privilegi"]);
+                        if (!dr["username"].ToString().Equals(""))
+                            utente = new Utente(dr["username"].ToString(), dr["password"].ToString(), (int)dr["privilegi"]);
                         Cliente c = new Cliente((int)dr["idCliente"], dr["nome"].ToString(), dr["cognome"].ToString(), dr["indirizzo"].ToString(), utente);
                         lista.Add(c);
                     }
@@ -178,7 +178,7 @@ namespace ClassLibrarySpedizioni
         //    }
         //    return lista;
         //}
-        public static List<Pacco> OttieniListaPacchiOrdinata(string connectionString, string type,bool vedidata)
+        public static List<Pacco> OttieniListaPacchiOrdinata(string connectionString, string type, bool vedidata)
         {
             List<Viaggio> listaViaggi = OttieniListaViaggi(connectionString);
             List<Cliente> listaClienti = OttieniListaClienti(connectionString);
@@ -188,7 +188,8 @@ namespace ClassLibrarySpedizioni
             if (type.Equals("Cliente"))
             {
                 queryString += "ORDER BY cliente.nome,cliente.cognome";
-            }else if (type.Equals("Consegna"))
+            }
+            else if (type.Equals("Consegna"))
             {
                 if (vedidata) queryString += "INNER";
                 else queryString += "LEFT";
@@ -215,7 +216,7 @@ namespace ClassLibrarySpedizioni
 
                     foreach (DataRow dr in dt.Rows)
                     {
-                        Pacco p = new Pacco((int)dr["idPacco"], listaViaggi.Find(x => x.IdViaggio == (int)dr["idViaggio"]), listaClienti.Find(x => x.IdCliente == (int)dr["idMittente"]), listaClienti.Find(x => x.IdCliente == (int)dr["idDestinatario"]), (int)dr["Volume"] );
+                        Pacco p = new Pacco((int)dr["idPacco"], listaViaggi.Find(x => x.IdViaggio == (int)dr["idViaggio"]), listaClienti.Find(x => x.IdCliente == (int)dr["idMittente"]), listaClienti.Find(x => x.IdCliente == (int)dr["idDestinatario"]), (int)dr["Volume"]);
                         lista.Add(p);
                     }
                 }
@@ -227,7 +228,7 @@ namespace ClassLibrarySpedizioni
             return lista;
         }
 
-        public static List<Pacco> OttieniListaPacchi(string connectionString,int idCliente)
+        public static List<Pacco> OttieniListaPacchi(string connectionString, int idCliente)
         {
             List<Viaggio> listaViaggi = OttieniListaViaggi(connectionString);
             List<Cliente> listaClienti = OttieniListaUtenti(connectionString);
