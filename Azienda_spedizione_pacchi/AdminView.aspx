@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="Andrea Lombardo,Emiliano Bergonzani">
-    <link href="css/admin.css" rel="stylesheet">
+    <link href="CssVari/admin.css" rel="stylesheet">
+    <link href="CssVari/table.css" rel="stylesheet">
 </head>
 <body>
     <form id="form1" runat="server">
         <div id="wrapper">
             <!-- Sidebar -->
-
 
             <div id="sidebar-wrapper">
                 <br />
