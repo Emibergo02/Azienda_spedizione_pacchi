@@ -12,7 +12,7 @@
     <link href="CssVari/table.css" rel="stylesheet">
 </head>
 <body>
-    <form id="form2" runat="server">
+    <form id="form2"  runat="server">
         <div id="wrapper">
             <!-- Sidebar -->
 
@@ -24,8 +24,14 @@
 
                         <br />
 
-                        <asp:Image runat="server" ImageUrl="~/Images/bg.png"
-                            ID="profileimg" />
+                        <asp:Image runat="server" ID="profileimg" />
+                        <asp:FileUpload ID="fileUpload1" runat="server" />
+                        <asp:Button id="UploadButton" 
+                            Text="Upload file"
+                            OnClick="btnupload_Click"
+                            runat="server">
+                        </asp:Button>    
+
                     </div>
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
                     <br />
@@ -58,7 +64,7 @@
                                 <div class="container-table100">
                                     <div class="wrap-table100">
                                         <div class="table100">
-                                            <table>
+                                            
                                                 <table>
                                                     <tr class="table100-head">
                                                         <th class="column1">Nome Mittente</th>

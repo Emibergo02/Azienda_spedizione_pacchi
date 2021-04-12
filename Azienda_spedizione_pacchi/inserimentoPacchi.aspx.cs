@@ -78,6 +78,7 @@ namespace Azienda_spedizione_pacchi
                 return;
             }
 
+
             DataAccess.InserisciPacco(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString, viaggio.SelectedItem.Value, mittente.SelectedItem.Value, destinatario.SelectedItem.Value, volumeint);
             msgErrorRegister.Text = "completato con successo";
 

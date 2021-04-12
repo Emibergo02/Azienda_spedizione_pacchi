@@ -11,7 +11,6 @@ namespace ClassLibrarySpedizioni
 {
     public class DataAccess
     {
-
         public static List<Viaggio> OttieniListaViaggi(string connectionString)
         {
             List<Viaggio> lista = new List<Viaggio>();
@@ -77,7 +76,7 @@ namespace ClassLibrarySpedizioni
             return lista;
         }
 
-        public static List<Cliente> OttieniListaClienti(string connectionString)
+        public static List<Cliente> OttieniListaUtenti(string connectionString)
         {
             List<Cliente> lista = new List<Cliente>();
             string queryString = "SELECT * FROM cliente INNER JOIN utenti ON utenti.idCliente = cliente.idCliente";
@@ -96,6 +95,7 @@ namespace ClassLibrarySpedizioni
 
                     foreach (DataRow dr in dt.Rows)
                     {
+                        
                         Utente utente = new Utente(dr["username"].ToString(), dr["password"].ToString(), (int)dr["privilegi"]);
                         Cliente c = new Cliente((int)dr["idCliente"], dr["nome"].ToString(), dr["cognome"].ToString(), dr["indirizzo"].ToString(), utente);
                         lista.Add(c);
@@ -108,11 +108,10 @@ namespace ClassLibrarySpedizioni
             }
             return lista;
         }
-
-        public static List<Pacco> OttieniListaPacchi(string connectionString, List<Viaggio> listaViaggi, List<Cliente> listaClienti)
+        public static List<Cliente> OttieniListaClienti(string connectionString)
         {
-            List<Pacco> lista = new List<Pacco>();
-            string queryString = "SELECT * FROM Pacco";
+            List<Cliente> lista = new List<Cliente>();
+            string queryString = "SELECT * FROM cliente LEFT JOIN utenti ON utenti.idCliente = cliente.idCliente";
             string messaggio = "";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -128,7 +127,11 @@ namespace ClassLibrarySpedizioni
 
                     foreach (DataRow dr in dt.Rows)
                     {
-                        Pacco p = new Pacco((int)dr["idPacco"], listaViaggi.Find(x => x.IdViaggio == (int)dr["idViaggio"]), listaClienti.Find(x => x.IdCliente == (int)dr["idMittente"]), listaClienti.Find(x => x.IdCliente == (int)dr["idDestinatario"]), (int)dr["Volume"]);
+                        Utente utente = null;
+                        if(!dr["username"].ToString().Equals(""))
+                        utente = new Utente(dr["username"].ToString(), dr["password"].ToString(), (int)dr["privilegi"]);
+                        Cliente c = new Cliente((int)dr["idCliente"], dr["nome"].ToString(), dr["cognome"].ToString(), dr["indirizzo"].ToString(), utente);
+                        lista.Add(c);
                     }
                 }
                 catch (Exception ex)
@@ -138,6 +141,7 @@ namespace ClassLibrarySpedizioni
             }
             return lista;
         }
+
 
         //public static List<Pacco> OttieniListaPacchi(string connectionString, Cliente c)
         //{
@@ -163,8 +167,8 @@ namespace ClassLibrarySpedizioni
 
         //            foreach (DataRow dr in dt.Rows)
         //            {
-                        
-                        
+
+
         //            }
         //        }
         //        catch (Exception ex)
@@ -174,11 +178,59 @@ namespace ClassLibrarySpedizioni
         //    }
         //    return lista;
         //}
+        public static List<Pacco> OttieniListaPacchiOrdinata(string connectionString, string type,bool vedidata)
+        {
+            List<Viaggio> listaViaggi = OttieniListaViaggi(connectionString);
+            List<Cliente> listaClienti = OttieniListaClienti(connectionString);
+
+            List<Pacco> lista = new List<Pacco>();
+            string queryString = "SELECT * FROM pacco INNER JOIN cliente ON cliente.idCliente=pacco.idDestinatario ";
+            if (type.Equals("Cliente"))
+            {
+                queryString += "ORDER BY cliente.nome,cliente.cognome";
+            }else if (type.Equals("Consegna"))
+            {
+                if (vedidata) queryString += "INNER";
+                else queryString += "LEFT";
+
+                queryString += " JOIN viaggio ON viaggio.idViaggio = pacco.idViaggio ORDER BY viaggio.data,cliente.cognome";
+            }
+            else if (type.Equals("Volume"))
+            {
+                queryString += "ORDER BY pacco.volume";
+            }
+            queryString += ";";
+            string messaggio = "";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                MySqlCommand command = new MySqlCommand(queryString, connection);
+
+                try
+                {
+                    connection.Open();
+                    MySqlDataAdapter da = new MySqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        Pacco p = new Pacco((int)dr["idPacco"], listaViaggi.Find(x => x.IdViaggio == (int)dr["idViaggio"]), listaClienti.Find(x => x.IdCliente == (int)dr["idMittente"]), listaClienti.Find(x => x.IdCliente == (int)dr["idDestinatario"]), (int)dr["Volume"] );
+                        lista.Add(p);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return lista;
+        }
 
         public static List<Pacco> OttieniListaPacchi(string connectionString,int idCliente)
         {
             List<Viaggio> listaViaggi = OttieniListaViaggi(connectionString);
-            List<Cliente> listaClienti = OttieniListaClienti(connectionString);
+            List<Cliente> listaClienti = OttieniListaUtenti(connectionString);
 
             List<Pacco> lista = new List<Pacco>();
             string queryString = "SELECT * FROM pacco INNER JOIN cliente ON cliente.idCliente=pacco.idDestinatario WHERE idDestinatario=" + idCliente + ";";
@@ -318,7 +370,7 @@ namespace ClassLibrarySpedizioni
         public static void InserisciPacco(string connectionString, string viaggio, string mittente, string destinatario, int volume)
         {
             List<Cliente> lista = new List<Cliente>();
-            string queryString = "INSERT INTO `pacco` (`idPacco`, `idViaggio`, `idMittente`, `idDestinatario`, `volume`) VALUES (NULL,@idViaggio,@idMittente,@idDestinatario,@volume);";
+            string queryString = "INSERT INTO `pacco` (`idPacco`, `idViaggio`, `idMittente`, `idDestinatario`, `volume`) VALUES (NULL,@idViaggio,@idMittente,@idDestinatario,@volume,@datastimata);";
             string messaggio = "";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -351,7 +403,7 @@ namespace ClassLibrarySpedizioni
             Viaggi = new List<int>();
             idCLienti = new List<int>();
             listaNomeCognome = new List<string>();
-            List<Cliente> lista = OttieniListaClienti(connectionString);
+            List<Cliente> lista = OttieniListaUtenti(connectionString);
             List<Viaggio> V = OttieniListaViaggi(connectionString);
             List<string> listaDropDown = new List<string>();
             foreach (Cliente c in lista)

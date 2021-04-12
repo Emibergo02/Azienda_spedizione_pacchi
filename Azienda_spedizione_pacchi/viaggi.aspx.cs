@@ -1,11 +1,7 @@
-﻿using System;
+﻿using ClassLibrarySpedizioni;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using ClassLibrarySpedizioni;
 
 namespace Azienda_spedizione_pacchi
 {
@@ -13,8 +9,8 @@ namespace Azienda_spedizione_pacchi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Viaggio> listaViaggi= DataAccess.OttieniListaViaggi(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString);
-            rptViaggi.DataSource = listaViaggi; 
+            List<Viaggio> listaViaggi = DataAccess.OttieniListaViaggi(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString);
+            rptViaggi.DataSource = listaViaggi;
             rptViaggi.DataBind();
             Session["listaViaggi"] = listaViaggi;
         }

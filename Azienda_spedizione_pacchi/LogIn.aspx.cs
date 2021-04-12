@@ -16,7 +16,7 @@ namespace Azienda_spedizione_pacchi
             
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-            Cliente c = DataAccess.OttieniListaClienti(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString).Find(client => client.Utente.Username.Equals(username));
+            Cliente c = DataAccess.OttieniListaUtenti(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString).Find(client => client.Utente.Username.Equals(username));
 
             if (c.Utente.Password.Equals(DataAccess.ComputeSha256Hash("questoèunsalt", password)))
             {

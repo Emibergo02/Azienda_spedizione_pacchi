@@ -14,7 +14,7 @@ namespace Azienda_spedizione_pacchi
 
         protected void submitReg_Click(object sender, EventArgs e)
         {
-            List<Cliente> clienti = DataAccess.OttieniListaClienti(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString);
+            List<Cliente> clienti = DataAccess.OttieniListaUtenti(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString);
             if (clienti.Find(cl => cl.Utente.Username == txtUsername.Text) != null)
             {
                 msgErrorRegister.Text = "L'username è già stato scelto";

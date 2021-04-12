@@ -9,7 +9,7 @@
 
 namespace Azienda_spedizione_pacchi
 {
-    
+
 
     public partial class AdminView
     {
@@ -31,5 +31,41 @@ namespace Azienda_spedizione_pacchi
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image profileimg;
+
+        /// <summary>
+        /// Controllo ddlSort.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSort;
+
+        /// <summary>
+        /// Controllo cbvedidata.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbvedidata;
+
+        /// <summary>
+        /// Controllo rptPacchi.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptPacchi;
+
+        /// <summary>
+        /// Controllo rptViaggi.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptViaggi;
     }
 }

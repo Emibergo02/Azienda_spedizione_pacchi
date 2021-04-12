@@ -1,4 +1,6 @@
-﻿namespace ClassLibrarySpedizioni
+﻿using System;
+
+namespace ClassLibrarySpedizioni
 {
     public class Pacco
     {
@@ -6,7 +8,6 @@
         private Viaggio viaggio;
         private Cliente mittente;
         private Cliente destinatario;
-        private int nOrdineConsegna;
         private int volume;
 
         public Pacco(int idPacco, Viaggio viaggio, Cliente mittente, Cliente destinatario, int volume)
@@ -16,6 +17,7 @@
             this.mittente = mittente;
             this.destinatario = destinatario;
             this.volume = volume;
+
         }
 
         public int IdPacco { get => idPacco; set => idPacco = value; }
@@ -23,5 +25,6 @@
         public Cliente Destinatario { get => destinatario; set => destinatario = value; }
         public int Volume { get => volume; set => volume = value; }
         public Viaggio Viaggio { get => viaggio; set => viaggio = value; }
+       
     }
 }

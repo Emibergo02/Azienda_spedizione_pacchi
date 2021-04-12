@@ -16,7 +16,7 @@ namespace Azienda_spedizione_pacchi
 
         /// <summary>
         /// Controllo profileimg.
-        /// </summary>  
+        /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.

@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Web.UI;
 
 namespace Azienda_spedizione_pacchi
@@ -26,13 +29,33 @@ namespace Azienda_spedizione_pacchi
                     Response.Redirect("LogIn.aspx");
                     return;
                 }
-
+            else
+            {
+               
+                return;
+            }
+            //Immagine utente
+            if (File.Exists(Server.MapPath(Path.Combine("~/Uploads/", c.IdCliente + ".png"))))
+                profileimg.ImageUrl = "Uploads/" + c.IdCliente + ".png";
+            else profileimg.ImageUrl = "Uploads/default.jpg";
             List<Pacco> listaPacchi = DataAccess.OttieniListaPacchi(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString,c.IdCliente);
 
 
             rptViaggi.DataSource = listaPacchi;
             rptViaggi.DataBind();
 
+        }
+
+        protected void btnupload_Click(object sender, EventArgs e)
+        {
+            //Immagine utente
+            if (fileUpload1.HasFile)
+            {
+                Cliente c = (Cliente)Session["clienteLoggato"];
+                string path = Server.MapPath(Path.Combine("~/Uploads/", c.IdCliente+ ".png"));
+                Image png=Image.FromStream(fileUpload1.PostedFile.InputStream);
+                png.Save(path, ImageFormat.Png);
+            }
         }
     }
 }

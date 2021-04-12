@@ -50,7 +50,7 @@
                             <p>
                                 Benvenuto nella pagina da amministratore per l'inserimento di nuovi veicoli. compili il form sottostante grazie.
                             </p>
-                            <form id="formLog" runat="server">
+                            <form id="formLog" enctype="multipart/form-data" runat="server">
                                 <div class="auto-style3">
                                     <table class="auto-style2">
 
@@ -81,11 +81,10 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <asp:DropDownList ID="viaggio" runat="server"></asp:DropDownList>
+                                                <asp:DropDownList ID="viaggio" runat="server"></asp:DropDownList></td>
                                         </tr>
-                                        
-                                       
-                                        <tr>
+       
+                                            <tr>
                                             <td class="auto-style7">
                                                 <asp:Button ID="submitReg" runat="server" Text="Inserisci" OnClick="submitReg_Click"  />
                                                 <asp:Literal ID="msgErrorRegister" runat="server"></asp:Literal>

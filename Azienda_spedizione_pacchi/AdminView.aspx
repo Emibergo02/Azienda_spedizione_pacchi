@@ -56,6 +56,59 @@
                             <p>
                                 A lato è presente un menu che ti permetterà di selezionare quale ambito vuoi andare a modificare, puoi aggiungere elementi direttamente al tuo DB.
                             </p>
+                            <h3>TABELLA PACCHI</h3>
+                            <asp:DropDownList ID="ddlSort" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged" AutoPostBack="true" runat="server">
+                                  <asp:ListItem Selected="True" Value="Cliente"> Nome Destinatario </asp:ListItem>
+                                  <asp:ListItem Value="Consegna"> Consegna </asp:ListItem>
+                                  <asp:ListItem Value="Volume"> Volume </asp:ListItem>
+                            </asp:DropDownList>
+                            <p>Vedi solo pacchi con viaggio assegnato</p><asp:CheckBox ID="cbvedidata" runat="server"/>
+                           <table>
+                                <tr class="table100-head">
+                                    <th class="column1">Id Pacco</th>
+                                    <th class="column2">Nome Destinatario</th>
+                                    <th class="column3">Cognome </th>
+                                    <th class="column4">Nome Mittente</th>
+                                    <th class="column5">Cognome </th>
+                                    <th class="column6">Volume Pacco</th>
+                                    <th class="column7">Data del Viaggio Spedizione</th>
+                                    <th class="column7">Indirizzo</th>
+                                </tr>
+                                <asp:Repeater ID="rptPacchi" runat="server">
+                                    <ItemTemplate>
+                                        <tr>
+                                            <td class="column1"><%#Eval("IdPacco") %></td>
+                                            <td class="column2"><%#Eval("Destinatario.Nome") %></td>
+                                            <td class="column3"><%#Eval("Destinatario.Cognome") %></td>
+                                            <td class="column4"><%#Eval("Mittente.Nome") %></td>
+                                            <td class="column5"><%#Eval("Mittente.Cognome") %></td>
+                                            <td class="column6"><%#Eval("Volume") %></td>
+                                            <td class="column7"><%#Eval("Viaggio.Data").ToString().Substring(0,10) %></td>
+                                            <td class="column7"><%#Eval("Destinatario.Indirizzo") %></td>
+                                        </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </table>
+
+                            <table>
+                                <tr class="table100-head">
+                                    <th class="column1">Numer Viaggio</th>
+                                    <th class="column2">Targa Mezzo </th>
+                                    <th class="column3">Data del viaggio</th>
+                                    <th class="column4">Nome corriere</th>
+                                </tr>
+                                <asp:Repeater ID="rptViaggi" runat="server">
+                                    <ItemTemplate>
+                                        <tr>
+                                            <td class="column1"><%#Eval("idViaggio") %></td>
+                                            <td class="column2"><%#Eval("Veicolo.Targa") %></td>
+                                            <td class="column3"><%#Eval("Data").ToString().Substring(0,10) %></td>
+                                            <td class="column4"><%#Eval("NomeCorriere") %></td>
+
+                                        </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </table>
 
                         </div>
                     </div>
