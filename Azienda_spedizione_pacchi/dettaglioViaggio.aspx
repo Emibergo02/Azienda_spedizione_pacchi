@@ -72,6 +72,7 @@
                                     <th class="column6">Volume Pacco</th>
                                     <th class="column7">Data del Viaggio Spedizione</th>
                                     <th class="column7">Indirizzo</th>
+                                    <th class="column7">Orario consegna stimato</th>
                                 </tr>
                                 <asp:Repeater ID="rptPacchi" runat="server">
                                     <ItemTemplate>
@@ -84,6 +85,7 @@
                                             <td class="column6"><%#Eval("Volume") %></td>
                                             <td class="column7"><%#Eval("Viaggio.Data").ToString().Substring(0,10) %></td>
                                             <td class="column7"><%#Eval("Destinatario.Indirizzo") %></td>
+                                            <td class="column7"><%#Convert.ToDateTime(Eval("Viaggio.Data")).AddMinutes(Container.ItemIndex*15)%></td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>

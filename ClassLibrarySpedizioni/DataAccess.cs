@@ -371,7 +371,7 @@ namespace ClassLibrarySpedizioni
         public static void InserisciPacco(string connectionString, string viaggio, string mittente, string destinatario, int volume)
         {
             List<Cliente> lista = new List<Cliente>();
-            string queryString = "INSERT INTO `pacco` (`idPacco`, `idViaggio`, `idMittente`, `idDestinatario`, `volume`) VALUES (NULL,@idViaggio,@idMittente,@idDestinatario,@volume,@datastimata);";
+            string queryString = "INSERT INTO `pacco` (`idPacco`, `idViaggio`, `idMittente`, `idDestinatario`, `volume`) VALUES (NULL,@idViaggio,@idMittente,@idDestinatario,@volume);";
             string messaggio = "";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))

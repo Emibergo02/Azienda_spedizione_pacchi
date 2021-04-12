@@ -13,10 +13,6 @@ namespace Azienda_spedizione_pacchi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            mittente.Items.Clear();
-            destinatario.Items.Clear();
-            viaggio.Items.Clear();
-            fillDropListUtente();
             if (!Page.IsPostBack)
                 if (Session["clienteLoggato"] != null)
                 {
@@ -30,11 +26,16 @@ namespace Azienda_spedizione_pacchi
                     else profileimg.ImageUrl = "Uploads/default.jpg";
                 }
                 else Response.Redirect("LogIn.aspx");
+            else return;
+            fillDropListUtente();
 
         }
 
         public void fillDropListUtente()
         {
+            mittente.Items.Clear();
+            destinatario.Items.Clear();
+            viaggio.Items.Clear();
             List<int> idClienti;
             List<string> listaNomeCognome;
             List<int> Viaggi;
@@ -42,13 +43,12 @@ namespace Azienda_spedizione_pacchi
                        ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString;
             DataAccess.GetDataSource(out Viaggi, out idClienti, out listaNomeCognome, connectionString);
 
-            var numbersAndWords = idClienti.Zip(listaNomeCognome, (n, w) => new { Number = n, Word = w });
-            foreach (var nw in numbersAndWords)
+            for(int i = 0; i < idClienti.Count; i++)
             {
-                mittente.Items.Add(new ListItem(nw.Word, nw.Number.ToString()));
-                destinatario.Items.Add(new ListItem(nw.Word, nw.Number.ToString()));
-
+                mittente.Items.Add(new ListItem(listaNomeCognome[i], idClienti[i].ToString()));
+                destinatario.Items.Add(new ListItem(listaNomeCognome[i], idClienti[i].ToString()));
             }
+ 
             foreach (int v in Viaggi)
             {
                 viaggio.Items.Add(v.ToString());
@@ -58,6 +58,7 @@ namespace Azienda_spedizione_pacchi
 
         protected void submitReg_Click(object sender, EventArgs e)
         {
+
             if (mittente.SelectedItem.Value.Equals(""))
             {
                 msgErrorRegister.Text = "mittente vuoto";

@@ -30,7 +30,8 @@
                     </div>
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
                     <br />
-
+                    <li><a href="AdminView.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Home</a>
+                    </li>    
                     <li><a href="InserimentoViaggi.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;<b>Viaggi</b></a>
                     </li>
                     <li><a href="inserimentoVeicoli.aspx"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Veicoli</a>
@@ -53,6 +54,7 @@
                             <p>
                                 Benvenuto nella pagina da amministratore per l'inserimento di nuove consegne.compili il form sottostante grazie.
                             </p>
+                            <br />
                             <form id="formLog" runat="server">
                                 <div class="auto-style3">
                                     <table class="auto-style2">

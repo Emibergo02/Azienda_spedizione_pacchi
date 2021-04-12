@@ -44,7 +44,7 @@
 					<div class="container-login100-form-btn m-t-17">
 						 <asp:Button ID="submitReg" class="login100-form-btn"  runat="server" Text="Login" OnClick="submitReg_Click" />
 					</div>
-
+					<asp:Literal ID="msgErr" runat="server"></asp:Literal>
 				</form>
 			</div>
 		</div>

@@ -28,7 +28,8 @@
                     </div>
                     <li id="nomeUtente" class="sidebar-brand"><a href="#"></a></li>
                     <br />
-
+                    <li><a href="AdminView.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;Home</a>
+                    </li>    
                     <li><a href="InserimentoViaggi.aspx"><span class="glyphicon glyphicon-music"></span>&nbsp;&nbsp;<b>Viaggi</b></a>
                     </li>
                     <li><a href="inserimentoVeicoli.aspx"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;Veicoli</a>
@@ -47,10 +48,11 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1>Inserimento nuove consegne</h1>
+                            <h1>Inserimento nuovi pacchi</h1>
                             <p>
-                                Benvenuto nella pagina da amministratore per l'inserimento di nuovi veicoli. compili il form sottostante grazie.
+                                Benvenuto nella pagina da amministratore per l'inserimento di nuovi pacchi. compili il form sottostante grazie.
                             </p>
+                            <br />
                             <form id="formLog" runat="server">
                                 <div class="auto-style3">
                                     <table class="auto-style2">

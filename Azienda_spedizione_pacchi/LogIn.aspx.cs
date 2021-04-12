@@ -27,6 +27,7 @@ namespace Azienda_spedizione_pacchi
                 else
                     Response.Redirect("AdminView.aspx");
             }
+            else msgErr.Text = "Password errata";
 
         }
 

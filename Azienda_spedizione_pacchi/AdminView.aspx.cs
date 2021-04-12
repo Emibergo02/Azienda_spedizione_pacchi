@@ -35,6 +35,10 @@ namespace Azienda_spedizione_pacchi
 
             rptViaggi.DataSource = listaViaggi;
             rptViaggi.DataBind();
+
+            List<Veicolo> listaVeicoli = DataAccess.OttieniListaVeicoli(ConfigurationManager.ConnectionStrings["ConnectionStringAziendaSpedizionePacchiMySQL"].ConnectionString);
+            Repeater1.DataSource = listaVeicoli;
+            Repeater1.DataBind();
         }
 
         protected void ddlSort_SelectedIndexChanged(object sender, EventArgs e)
